@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8825-2" />
+ <meta http-equiv="Content-Language" content="pl" />
+ <meta http-equiv="pragma" content="no-cache" />
+ <meta name="robots" content="index, follow" />
+ <meta name="Author" content="Traxelektronik" />
+ <meta name="Keywords" content="Pogoda,TRAX-Elektronik,kamery,drogi,polska,znaki,znaki zmiennej tre¶ci,tablice,tablice ¶wietlne, tablice zmiennej tre¶ci, tablice led, tablice reklamowe, tablice diodowe, reklamy, banery, wy¶wietlacze, ekrany ¶wietlne,euro,euro 2012,kamery euro,kamery na euro" />
+ <title>Lokalizacja Kobylnica</title>
+<STYLE TYPE="text/css">
+<!--
+a {text-decoration:none; font: 12px Verdana; color:#00AAAA; font-weight: bold;}
+a:hover {text-decoration:none; font: 12px Verdana; color:#00AAAA; font-weight: bold;}
+alink {text-decoration:none; font: 12px Verdana; color:#00AAAA;}
+BODY{font: 12px Verdana; color: #000000;}
+.belka {background-color:#111144; font:16px Verdana; color:white; font-weight:bold;vertical-align: middle;text-align: center;}
+.belka1 {background-color:#FFFFFF; font:16px Verdana; color:white; font-weight:bold;vertical-align: middle;text-align: center;}
+.kamery {background-color:#111144; font:12px Verdana; color:#8FF; border:0px;}
+.ruch {background-color:#CCC; font:12px Verdana; color:#000; border:1px solid black; background-image: url(img/auto.png);background-repeat:no-repeat;}
+-->
+</STYLE>
+
+</head>
+<body bgcolor=#ABD3FF background="../lib/trax_logo_3.png" onLoad=Start();>
+<center><table border=0 width=60% style='font:12px Verdana; color:black;'><tr><td bgcolor=#111144 colspan=3 align=center><span style='font:14px Verdana; color:#FFF;'>Lokalizacja: <font size=+1><b>Kobylnica</b></font><br>GDDKiA Gdañsk/Rejon S³upsk<br><a onClick=GetItem('mapa').style.display='' title='Po³o¿enie lokalizacji na mapie Polski'>N 54&deg;25.54'&nbsp;E 17&deg;0.98'</a></span><br><img src=polska.php?X=17.01626&Y=54.4257&name=Kobylnica ID=mapa style="position:absolute; display:'';" onClick=GetItem('mapa').style.display='none'; title='Po³o¿enie w Polsce; kliknij, aby ukryæ mapê'></td></tr><tr border=0><td width=15%>&nbsp;</td><td align=center>dane z 2019-07-21 22:50</td><td width=15% align=right><a href="javascript:window.open('https://www.traxelektronik.pl/pogoda/logging.php','LOGOWANIE','toolbar=no,menubar=no,width=350,height=200').focus();">zaloguj</a>
+&nbsp;</td></tr></table>
+
+
+<br><table style='font:12px Verdana;'><tr><th class=belka colspan=3 valign=center>Drogowa stacja meteorologiczna</th>
+</tr>
+<tr><td valign=top>
+<img src=temp.php?temp=16.7&sr=16.7666666667&name=Temperatura,odczuwalna title='Temperatura odczuwalna'>&nbsp;
+<img src=temp.php?temp=17.6&sr=17.6666666667&name=Temperatura,powietrza title='Temperatura powietrza'>&nbsp;
+<img src=temp.php?temp=19.8&sr=20.1333333333&name=Temperatura,nawierzchni,0cm, title='Temperatura nawierzchni 0cm '>&nbsp;
+<img src=temp.php?temp=22.9&sr=23.3&name=Temperatura,nawierzchni,-5cm, title='Temperatura nawierzchni -5cm '>&nbsp;
+<img src=temp.php?temp=20.4&sr=20.4&name=Temperatura,podbudowy,-30cm title='Temperatura podbudowy -30cm'>&nbsp;
+<img src=temp.php?temp=13.9&sr=13.7&name=Temperatura,punktu,rosy title='Temperatura punktu rosy'>&nbsp;
+</td>
+<td valign=top align=center>
+<table ID=owiatr bgcolor=white border=1 style='font:12px Verdana; position:absolute; display:"";'; title='Kliknij, aby ukryæ' onClick=GetItem('owiatr').style.display='none';><tr>
+<td><b>Prêdko¶æ wiatru:</b><br>&nbsp;&nbsp;2.3 m/s<br>&nbsp;&nbsp;8.3 km/h<br>&nbsp;&nbsp;4.5 wêz³ów<br>&nbsp;&nbsp;2 st.Bouforta<br>&nbsp;&nbsps³aby wiatr<br><b>Kierunek wiatru:</b><br>&nbsp;&nbsp;271&deg;, W<br>zachodni</td>
+</tr>
+</table>
+
+
+<img src=img/wiatr4.gif style='position:absolute; z-index:-1;'><img src=wiatr.php?v=2.3&k=271 title='Kliknij, aby zobaczyc szczegó³y dotycz±ce wiatru' onClick=GetItem('owiatr').style.display=''><br><br><b>Wilgotno¶æ powietrza</b><br><img src=higro.php?h=78.9&sr=77.7333333333><br><br></td>
+<td align=center valign=top bgcolor=#AAAAAA><b>Stan opadu</b><br><img src=../images/opad_brak.png style='width:3em;' title='brak'><br><br><br><b>Czas wystêpowania opadu</b><br><img src=opad.php?v=19.36&max=10000><br>4.4 %<br><br><br><b>Stan nawierzchni </b><br><img src=../images/naw1.png style='width:3em;' title='sucha'><br><br><br></td>
+</tr>
+</table>
+</tr>
+<table style='font:12px Verdana;'>
+<tr>
+<td width=50>&nbsp;</td><th class=belka>klasyfikator pojazdów</th>
+</tr>
+<tr>
+<td>&nbsp;</td><td valign=top colspan=3><center><b>kierunek Szczecin</b><br><table class=ruch border=1><tr><td align=right><b>Ilo¶æ pojazdów</b>&nbsp;</td><td align=center><i>[szt/10 min]</i></td><td align=center><b>14</b></td></tr>
+<tr><td align=right><b>Prêdko¶æ ¶rednia</b>&nbsp;</td><td align=center><i>[km/h]</i></td><td align=center><b>110</b></td></tr>
+<tr><td align=right><b>Prêdko¶æ maksymalna</b>&nbsp;</td><td align=center><i>[km/h]</i></td><td align=center><b>144</b></td></tr>
+<tr><td align=right><b>Natê¿enie ruchu</b>&nbsp;</td><td align=center><i>[szt/h]</i></td><td align=center><b>84</b></td></tr>
+</table><br><br>
+<center><b>kierunek Gdañsk</b><br><table class=ruch border=1><tr><td align=right><b>Ilo¶æ pojazdów</b>&nbsp;</td><td align=center><i>[szt/10 min]</i></td><td align=center><b>28</b></td></tr>
+<tr><td align=right><b>Prêdko¶æ ¶rednia</b>&nbsp;</td><td align=center><i>[km/h]</i></td><td align=center><b>95</b></td></tr>
+<tr><td align=right><b>Prêdko¶æ maksymalna</b>&nbsp;</td><td align=center><i>[km/h]</i></td><td align=center><b>117</b></td></tr>
+<tr><td align=right><b>Natê¿enie ruchu</b>&nbsp;</td><td align=center><i>[szt/h]</i></td><td align=center><b>168</b></td></tr>
+</table><br><br>
+</td>
+
+</tr>
+</table>
+<img id=view style='position:absolute; left:10px; top:20px;' onClick= GetItem('view').style.display='none'>
+  <script type="text/javascript">
+  <!--
+
+function GetItem(id) {
+  if (document.getElementById) return document.getElementById(id);
+  if (document.all) return document.all[id];
+  if (document.layers) return document.layers[id];
+  return null;
+}
+function Start(){
+  GetItem('mapa').style.left=GetItem('mapa').offsetLeft-150;
+  GetItem('mapa').style.top=GetItem('mapa').offsetTop-10;
+  GetItem('mapa').style.display='none';
+  GetItem('owiatr').style.display='none';
+}
+
+function Powieksz(fname){
+  GetItem('view').src=fname;
+  GetItem('view').style.display='';
+}
+
+-->
+</SCRIPT>

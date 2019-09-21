@@ -1,0 +1,12 @@
+version: '3'
+services:
+  transfer2windy:
+    image: transfer2windy
+    build: .
+    env_file:
+      - .env
+    networks:
+      - transfer2windy
+networks:
+  transfer2windy:
+    driver: bridge

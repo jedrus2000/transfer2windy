@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8825-2" />
+ <meta http-equiv="Content-Language" content="pl" />
+ <meta http-equiv="pragma" content="no-cache" />
+ <meta name="robots" content="index, follow" />
+ <meta name="Author" content="Traxelektronik" />
+ <meta name="Keywords" content="Pogoda,TRAX-Elektronik,kamery,drogi,polska,znaki,znaki zmiennej tre¶ci,tablice,tablice ¶wietlne, tablice zmiennej tre¶ci, tablice led, tablice reklamowe, tablice diodowe, reklamy, banery, wy¶wietlacze, ekrany ¶wietlne,euro,euro 2012,kamery euro,kamery na euro" />
+ <title>Lokalizacja K±ty</title>
+<STYLE TYPE="text/css">
+<!--
+a {text-decoration:none; font: 12px Verdana; color:#00AAAA; font-weight: bold;}
+a:hover {text-decoration:none; font: 12px Verdana; color:#00AAAA; font-weight: bold;}
+alink {text-decoration:none; font: 12px Verdana; color:#00AAAA;}
+BODY{font: 12px Verdana; color: #000000;}
+.belka {background-color:#111144; font:16px Verdana; color:white; font-weight:bold;vertical-align: middle;text-align: center;}
+.belka1 {background-color:#FFFFFF; font:16px Verdana; color:white; font-weight:bold;vertical-align: middle;text-align: center;}
+.kamery {background-color:#111144; font:12px Verdana; color:#8FF; border:0px;}
+.ruch {background-color:#CCC; font:12px Verdana; color:#000; border:1px solid black; background-image: url(img/auto.png);background-repeat:no-repeat;}
+-->
+</STYLE>
+
+</head>
+<body bgcolor=#ABD3FF background="../lib/trax_logo_3.png" onLoad=Start();>
+<center><table border=0 width=60% style='font:12px Verdana; color:black;'><tr><td bgcolor=#111144 colspan=3 align=center><span style='font:14px Verdana; color:#FFF;'>Lokalizacja: <font size=+1><b>K±ty</b></font><br>GDDKiA Warszawa/Rejon Garwolin<br><a onClick=GetItem('mapa').style.display='' title='Po³o¿enie lokalizacji na mapie Polski'>N 52&deg;1.84'&nbsp;E 21&deg;30.18'</a></span><br><img src=polska.php?X=21.5030291&Y=52.0306263&name=K±ty ID=mapa style="position:absolute; display:'';" onClick=GetItem('mapa').style.display='none'; title='Po³o¿enie w Polsce; kliknij, aby ukryæ mapê'></td></tr><tr border=0><td width=15%>&nbsp;</td><td align=center>dane z 2019-07-21 22:50</td><td width=15% align=right><a href="javascript:window.open('https://www.traxelektronik.pl/pogoda/logging.php','LOGOWANIE','toolbar=no,menubar=no,width=350,height=200').focus();">zaloguj</a>
+&nbsp;</td></tr></table>
+
+
+<br><table style='font:12px Verdana;'><tr><th class=belka colspan=3 valign=center>Drogowa stacja meteorologiczna</th>
+</tr>
+<tr><td valign=top>
+<img src=temp.php?temp=-3200.6&sr=-3200.6&name=Temperatura,odczuwalna title='Temperatura odczuwalna'>&nbsp;
+<img src=temp.php?temp=-3200.6&sr=-3200.6&name=Temperatura,powietrza title='Temperatura powietrza'>&nbsp;
+<img src=temp.php?temp=-3200.6&sr=-3200.6&name=Temperatura,powietrza,20cm title='Temperatura powietrza 20cm'>&nbsp;
+<img src=temp.php?temp=-3200.6&sr=-3200.6&name=Temperatura,nawierzchni,0cm, title='Temperatura nawierzchni 0cm '>&nbsp;
+<img src=temp.php?temp=-3200.6&sr=-3200.6&name=Temperatura,nawierzchni,-5cm, title='Temperatura nawierzchni -5cm '>&nbsp;
+<img src=temp.php?temp=-3200.6&sr=-3200.6&name=Temperatura,podbudowy,-30cm title='Temperatura podbudowy -30cm'>&nbsp;
+<img src=temp.php?temp=-3200.6&sr=-3200.6&name=Temperatura,punktu,rosy title='Temperatura punktu rosy'>&nbsp;
+</td>
+<td valign=top align=center>
+<img src=img/wiatr0.gif style='position:absolute; z-index:-1;'><img src=wiatr.php?v=-3200.6&k=-3200.4  onClick=GetItem('owiatr').style.display=''><br><br><b>Wilgotno¶æ powietrza</b><br><img src=higro.php?h=-3200.6&sr=-3200.6><br><br></td>
+<td align=center valign=top bgcolor=#AAAAAA></td>
+</tr>
+</table>
+</tr>
+<table style='font:12px Verdana;'>
+<tr>
+<th class=belka valign=center>widoki z kamer</th><td width=50>&nbsp;</td><th class=belka>klasyfikator pojazdów</th>
+</tr>
+<tr>
+<td align=center valign=top>
+<table class=kamery><tr><td align=center colspan=1>
+<b>K±ty</b>
+<br>Droga nr 17, 28.16 km</td>
+</tr>
+<tr><td align=center valign=top>kierunek Warszawa<br><div style='width:176; height:144; color:white;'><br><br><br>Brak<br>obrazu<br>z kamery</div></td>
+</tr></table>
+</td>
+<td>&nbsp;</td><td valign=top colspan=3><center><b>kierunek Lublin</b><br><table class=ruch border=1><tr><td align=right><b>Ilo¶æ pojazdów</b>&nbsp;</td><td align=center><i>[szt/10 min]</i></td><td align=center><b>-</b></td></tr>
+<tr><td align=right><b>Prêdko¶æ ¶rednia</b>&nbsp;</td><td align=center><i>[km/h]</i></td><td align=center><b>-</b></td></tr>
+<tr><td align=right><b>Prêdko¶æ maksymalna</b>&nbsp;</td><td align=center><i>[km/h]</i></td><td align=center><b>-</b></td></tr>
+<tr><td align=right><b>Natê¿enie ruchu</b>&nbsp;</td><td align=center><i>[szt/h]</i></td><td align=center><b>-</b></td></tr>
+</table><br><br>
+<center><b>kierunek Warszawa</b><br><table class=ruch border=1><tr><td align=right><b>Ilo¶æ pojazdów</b>&nbsp;</td><td align=center><i>[szt/10 min]</i></td><td align=center><b>-</b></td></tr>
+<tr><td align=right><b>Prêdko¶æ ¶rednia</b>&nbsp;</td><td align=center><i>[km/h]</i></td><td align=center><b>-</b></td></tr>
+<tr><td align=right><b>Prêdko¶æ maksymalna</b>&nbsp;</td><td align=center><i>[km/h]</i></td><td align=center><b>-</b></td></tr>
+<tr><td align=right><b>Natê¿enie ruchu</b>&nbsp;</td><td align=center><i>[szt/h]</i></td><td align=center><b>-</b></td></tr>
+</table><br><br>
+</td>
+
+</tr>
+</table>
+<img id=view style='position:absolute; left:10px; top:20px;' onClick= GetItem('view').style.display='none'>
+  <script type="text/javascript">
+  <!--
+
+function GetItem(id) {
+  if (document.getElementById) return document.getElementById(id);
+  if (document.all) return document.all[id];
+  if (document.layers) return document.layers[id];
+  return null;
+}
+function Start(){
+  GetItem('mapa').style.left=GetItem('mapa').offsetLeft-150;
+  GetItem('mapa').style.top=GetItem('mapa').offsetTop-10;
+  GetItem('mapa').style.display='none';
+  GetItem('owiatr').style.display='none';
+}
+
+function Powieksz(fname){
+  GetItem('view').src=fname;
+  GetItem('view').style.display='';
+}
+
+-->
+</SCRIPT>

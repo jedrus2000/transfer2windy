@@ -1,0 +1,1011 @@
+
+
+
+<!doctype html>
+<html>
+<head>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<meta charset=UTF-8>
+<meta http-equiv="refresh" content="300">
+<title>Pomiar parametrów powietrza i wody morskiej przy molo w Sopocie (Bałtyk Południowy)</title>
+
+<link rel="Stylesheet" type="text/css" href="style2.css" />
+<script src ="jquery.js" type="text/javascript"></script>
+<script src ="main.js" type="text/javascript"></script>
+ <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+ <script language="javascript" type="text/javascript" src="flot/jquery.flot.selection.js"></script>
+  <script language="javascript" type="text/javascript" src="flot/jquery.flot.threshold.js"></script>
+<script language="javascript" type="text/javascript" src="flot/jquery.flot.crosshair.js"></script>
+ 
+<!--[if lte IE 8]> <link href="ie.css" rel="stylesheet" type="text/css"> <![endif]-->
+<!--[if IE 9]> <link href="ie9.css" rel="stylesheet" type="text/css"> <![endif]-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26165062-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body>
+
+<div id="tresc" >
+<div class="lang">
+<form action="?" method="get">
+<input type="submit" value="English Version" name="lang"></form>
+</div>
+
+
+<div id="banner">
+
+<a href="http://wabproject.pl/pl/" target=_black><img src ="logo.png" class="logo1"></a> 
+<a href="http://www.iopan.gda.pl/MarPoLab/index.html" ><img src="logo-pl.gif" class="powrot"></a> 
+<a href="http://www.iopan.gda.pl/index-pl.html"><img src ="PAN.png" class="logo2"></a>
+<h1 class="wab">WAB - monitoring <br><strong>Pomiar parametrów powietrza i wody morskiej <br>przy molo w Sopocie (Bałtyk Południowy) - N:54&deg;26'52" E:18&deg;34'33" </strong></h1>
+
+<h4>Do poprawnego działania strony wymagana jest aktualna wersja przeglądarki (m.in. Firefox 7, Safari 5, Opera 11, Chrome 14) </h4>
+<br>
+<h2>Głównym zadaniem <a href="http://www.iopan.gda.pl/index-pl.html" target=_black>Instytutu Oceanologii PAN</a> (<a href="http://www.iopan.gda.pl/MarPoLab/index.html" target=_black>Pracowni Chemicznych Zanieczyszczeń Morza</a>) w ramach projektu <a href="http://wabproject.pl/pl/" target=_black>WAB</a> była instalacja stacji monitoringowej (in-situ) w Sopocie. Zainstalowana w lipcu 2011 roku aparatura mierzy z częstotliwością co 3 sekundy zarówno parametry powietrza (stacja meteorologiczna) jak i wody morskiej (sonda wieloparametrowa). Poniżej znajdują się wybrane uśrednione dane ze stacji monitoringowej z ostatnich 72 godzin. </h2>
+
+</div>
+
+<div class="akapittyt" id="ieinfo" >Do poprawnego działania strony wymagana jest aktualna wersja przeglądarki (m.in. Firefox 7, Safari 5, Opera 11, Chrome 14) Internet Explorer w wersji 8 i niżej nie jest w stanie poprawnie wyświetlić tej strony. W celu bezproblemowego korzystania zalecana jest instalacja Internet Exploler w wersji przynajmniej <a href="windows.microsoft.com/pl-PL/internet-explorer/downloads/ie">9</a> albo skorzystania z innych przeglądarek jak: <a href="http://www.mozilla.org/pl/firefox/new/">FireFox</a>, <a href="https://www.google.com/chrome?hl=pl">Chrome</>, <a href="http://www.opera.com/download/">Opera</a>.</div>
+<div class="all">
+<div id="ustawienia" >
+
+
+
+<fieldset class="data">
+<legend>Zakres:</legend>
+<p><label>Data początkowa: 23/07/2019</p>
+<p><label> Data końcowa: </label>25/07/2019</p>
+
+</fieldset>
+
+
+<ul class="menu">
+<a href="#parpow"><li>Parametry powietrza</li></a>
+<a href="#parwody"><li>Parametry wody morskiej</li></a>
+<li></li>
+</ul>
+</div>
+
+<!--
+<div id="informacje" class="akapittyt">
+<a href="#wykrestemperatury">
+<div class="informacja">
+:<br>
+<span class="wartosc" id="warttemp">
+[&deg;C]</span>
+<br>
+<img src="tempdown.png" class="ikonka">
+</div>
+</a>
+<a href="#wykresnasloneczenia">
+<div class="informacja" id="infonas">
+:<br><span class="wartosc">
+1[W/m&sup2]</span>
+</div></a>
+<a href="#wykresopadu">
+<div class="informacja">
+:<br><span class="wartosc">0.00[mm]</span>
+</div></a>
+<a href="#wykreswilgotnosci">
+<div class="informacja">
+:<br><span class="wartosc">[%]</span>
+</div></a>
+<a href="#wykrescisnienia">
+<div class="informacja">
+:<br><span class="wartosc">0[hPa]</span>
+</div></a>
+<a href="#wykrespredkosciwiatru">
+<div class="informacja">
+:<br><span class="wartosc">[m/s]</span>
+</div></a>
+<a href="#kierwiat">
+<div class="informacja">
+:<br>
+<img class="strz" src="strzalka.png" style="-moz-transform: rotate(deg);-ms-transform: rotate(deg);-o-transform: rotate(deg); -webkit-transform: rotate(deg); width:20px"; ></div>
+</a>
+<p class="clear">&nbsp;</p>
+</div>
+
+-->
+
+<div id="parpow" class="akapittyt">
+PARAMETRY POWIETRZA:<div class="link"><a href="#banner">Do góry</a></div>
+</div>
+
+
+
+<div id="wykrestemperatury" class="akapit">
+<p class="tytulwykresu">Temperatura powietrza [&deg;C]:</p>
+<div id="wyktemperatury" class="obszarwykresu" title="zaznacz obszar aby przybliżyć"></div>
+<div id="wyktemperaturypodglad" class="obszarwykresupodglad"></div>
+<p><input id="enableTooltiptemppo" class="enableTooltip" type="checkbox">Punkty</p>
+<button id="resettemp" class="reset">Reset</button>
+</div>
+
+
+
+
+
+<div id="wykresnasloneczenia" class="akapit">
+<p class="tytulwykresu">Nasłonecznienie [W/m&sup2]:</p>
+<div id="wykresnas" class="obszarwykresu"title="zaznacz obszar aby przybliżyć"></div>
+<div id="wykresnaspodglad" class="obszarwykresupodglad"></div>
+<p><input id="enableTooltipnas" type="checkbox">Punkty</p>
+<button id="resetnas" class="reset">Reset</button>
+</div>
+
+
+
+
+
+
+<div id="wykresopadu" class="akapit">
+<p class="tytulwykresu">Opad - 1H [mm]:</p>
+
+<div id="wykresopad" class="obszarwykresu"title="zaznacz obszar aby przybliżyć"></div>
+<div id="wykresopadpodglad" class="obszarwykresupodglad"></div>
+<p><input id="enableTooltipopad" type="checkbox">Punkty</p>
+<button id="resetopad" class="reset">Reset</button>
+</div>
+
+
+
+
+
+<div id="wykreswilgotnosci" class="akapit">
+<p class="tytulwykresu">Wilgotność [%]:<span class="link2"><a href="#banner">Do góry</a></span></p>
+<div id="wykreswil" class="obszarwykresu"title="zaznacz obszar aby przybliżyć"></div>
+<div id="wykreswilpodglad" class="obszarwykresupodglad"></div>
+<p><input id="enableTooltipwil" type="checkbox">Punkty</p>
+<button id="resetwil" class="reset">Reset</button>
+</div>
+
+
+
+
+
+
+<div id="wykrescisnienia" class="akapit">
+<p class="tytulwykresu">Ciśnienie [hPa]:</p>
+<div id="wykrescis" class="obszarwykresu"title="zaznacz obszar aby przybliżyć"></div>
+<div id="wykrescispodglad" class="obszarwykresupodglad"></div>
+<p><input id="enableTooltipcis" type="checkbox">Punkty</p>
+<button id="resetcis" class="reset">Reset</button>
+</div>
+
+
+
+
+
+
+
+<div id="wykrespredkosciwiatru" class="akapit">
+<p class="tytulwykresu">Prędkość wiatru [m/s]:<span class="link3"><a href="#banner">Do góry</a></span></p>
+<div id="wykresprwt" class="obszarwykresu"title="zaznacz obszar aby przybliżyć"></div>
+<div id="wykrespwpodglad" class="obszarwykresupodglad"></div>
+<p><input id="enableTooltippw" type="checkbox">Punkty</p>
+<button id="resetpw" class="reset">Reset</button>
+</div>
+
+
+
+
+
+<div id="kierwiat" >
+<p class="tytulwykresu" id="tytkir">Kierunek wiatru:</p>  <img src="roza.png" class="rozka">
+<div class="tabelka">
+<div class="komorkatyt">
+				<p class="kdatatyt">Data :</p>
+				<p class="kczastyt">Godzina :</p>
+				<p class="kwartosctyt">Kierunek wiatru :</p>
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">22-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">00:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">239.64<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(59.64deg);-ms-transform: rotate(59.64deg);-o-transform: rotate(59.64deg); -webkit-transform: rotate(59.64deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">22-VII 2019</p>
+				<p class="kczas">00:29</p>
+				<p class="kwartosc">255.32<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(75.32deg);-ms-transform: rotate(75.32deg);-o-transform: rotate(75.32deg); -webkit-transform: rotate(75.32deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">22-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">00:59</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">256.41<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(76.41deg);-ms-transform: rotate(76.41deg);-o-transform: rotate(76.41deg); -webkit-transform: rotate(76.41deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">01:29</p>
+				<p class="kwartosc">271.56<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(91.56deg);-ms-transform: rotate(91.56deg);-o-transform: rotate(91.56deg); -webkit-transform: rotate(91.56deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">01:59</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">285.67<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(105.67deg);-ms-transform: rotate(105.67deg);-o-transform: rotate(105.67deg); -webkit-transform: rotate(105.67deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">02:29</p>
+				<p class="kwartosc">286.74<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(106.74deg);-ms-transform: rotate(106.74deg);-o-transform: rotate(106.74deg); -webkit-transform: rotate(106.74deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">03:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">285.05<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(105.05deg);-ms-transform: rotate(105.05deg);-o-transform: rotate(105.05deg); -webkit-transform: rotate(105.05deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">03:30</p>
+				<p class="kwartosc">301.49<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(121.49deg);-ms-transform: rotate(121.49deg);-o-transform: rotate(121.49deg); -webkit-transform: rotate(121.49deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">04:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">278.67<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(98.67deg);-ms-transform: rotate(98.67deg);-o-transform: rotate(98.67deg); -webkit-transform: rotate(98.67deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">04:29</p>
+				<p class="kwartosc">283.65<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(103.65deg);-ms-transform: rotate(103.65deg);-o-transform: rotate(103.65deg); -webkit-transform: rotate(103.65deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">05:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">265.41<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(85.41deg);-ms-transform: rotate(85.41deg);-o-transform: rotate(85.41deg); -webkit-transform: rotate(85.41deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">05:29</p>
+				<p class="kwartosc">251.62<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(71.62deg);-ms-transform: rotate(71.62deg);-o-transform: rotate(71.62deg); -webkit-transform: rotate(71.62deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">06:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">222.19<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(42.19deg);-ms-transform: rotate(42.19deg);-o-transform: rotate(42.19deg); -webkit-transform: rotate(42.19deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">06:29</p>
+				<p class="kwartosc">239.13<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(59.13deg);-ms-transform: rotate(59.13deg);-o-transform: rotate(59.13deg); -webkit-transform: rotate(59.13deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">07:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">259.45<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(79.45deg);-ms-transform: rotate(79.45deg);-o-transform: rotate(79.45deg); -webkit-transform: rotate(79.45deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">07:30</p>
+				<p class="kwartosc">249.07<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(69.07deg);-ms-transform: rotate(69.07deg);-o-transform: rotate(69.07deg); -webkit-transform: rotate(69.07deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">08:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">236.73<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(56.73deg);-ms-transform: rotate(56.73deg);-o-transform: rotate(56.73deg); -webkit-transform: rotate(56.73deg); width:20px"; ></p>	
+			</div><div class="komorkatyt">
+				<p class="kdatatyt">Data :</p>
+				<p class="kczastyt">Godzina :</p>
+				<p class="kwartosctyt">Kierunek wiatru :</p>
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">08:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">237.08<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(57.08deg);-ms-transform: rotate(57.08deg);-o-transform: rotate(57.08deg); -webkit-transform: rotate(57.08deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">09:00</p>
+				<p class="kwartosc">256.57<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(76.57deg);-ms-transform: rotate(76.57deg);-o-transform: rotate(76.57deg); -webkit-transform: rotate(76.57deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">09:29</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">258.36<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(78.36deg);-ms-transform: rotate(78.36deg);-o-transform: rotate(78.36deg); -webkit-transform: rotate(78.36deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">10:00</p>
+				<p class="kwartosc">287.41<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(107.41deg);-ms-transform: rotate(107.41deg);-o-transform: rotate(107.41deg); -webkit-transform: rotate(107.41deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">10:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">288.58<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(108.58deg);-ms-transform: rotate(108.58deg);-o-transform: rotate(108.58deg); -webkit-transform: rotate(108.58deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">11:00</p>
+				<p class="kwartosc">301.87<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(121.87deg);-ms-transform: rotate(121.87deg);-o-transform: rotate(121.87deg); -webkit-transform: rotate(121.87deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">11:29</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">301.12<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(121.12deg);-ms-transform: rotate(121.12deg);-o-transform: rotate(121.12deg); -webkit-transform: rotate(121.12deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">12:00</p>
+				<p class="kwartosc">117.00<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-423deg);-ms-transform: rotate(-423deg);-o-transform: rotate(-423deg); -webkit-transform: rotate(-423deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">12:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">58.27<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-481.73deg);-ms-transform: rotate(-481.73deg);-o-transform: rotate(-481.73deg); -webkit-transform: rotate(-481.73deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">13:00</p>
+				<p class="kwartosc">42.20<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-497.8deg);-ms-transform: rotate(-497.8deg);-o-transform: rotate(-497.8deg); -webkit-transform: rotate(-497.8deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">13:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">34.13<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-505.87deg);-ms-transform: rotate(-505.87deg);-o-transform: rotate(-505.87deg); -webkit-transform: rotate(-505.87deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">14:00</p>
+				<p class="kwartosc">58.87<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-481.13deg);-ms-transform: rotate(-481.13deg);-o-transform: rotate(-481.13deg); -webkit-transform: rotate(-481.13deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">14:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">80.65<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-459.35deg);-ms-transform: rotate(-459.35deg);-o-transform: rotate(-459.35deg); -webkit-transform: rotate(-459.35deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">15:00</p>
+				<p class="kwartosc">105.63<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-434.37deg);-ms-transform: rotate(-434.37deg);-o-transform: rotate(-434.37deg); -webkit-transform: rotate(-434.37deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">15:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">128.01<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-411.99deg);-ms-transform: rotate(-411.99deg);-o-transform: rotate(-411.99deg); -webkit-transform: rotate(-411.99deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">15:59</p>
+				<p class="kwartosc">136.40<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-403.6deg);-ms-transform: rotate(-403.6deg);-o-transform: rotate(-403.6deg); -webkit-transform: rotate(-403.6deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">16:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">137.13<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-402.87deg);-ms-transform: rotate(-402.87deg);-o-transform: rotate(-402.87deg); -webkit-transform: rotate(-402.87deg); width:20px"; ></p>	
+			</div><div class="komorkatyt">
+				<p class="kdatatyt">Data :</p>
+				<p class="kczastyt">Godzina :</p>
+				<p class="kwartosctyt">Kierunek wiatru :</p>
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">16:59</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">145.75<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-394.25deg);-ms-transform: rotate(-394.25deg);-o-transform: rotate(-394.25deg); -webkit-transform: rotate(-394.25deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">17:30</p>
+				<p class="kwartosc">140.20<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-399.8deg);-ms-transform: rotate(-399.8deg);-o-transform: rotate(-399.8deg); -webkit-transform: rotate(-399.8deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">18:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">150.67<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-389.33deg);-ms-transform: rotate(-389.33deg);-o-transform: rotate(-389.33deg); -webkit-transform: rotate(-389.33deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">18:30</p>
+				<p class="kwartosc">268.44<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(88.44deg);-ms-transform: rotate(88.44deg);-o-transform: rotate(88.44deg); -webkit-transform: rotate(88.44deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">18:59</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">327.40<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(147.4deg);-ms-transform: rotate(147.4deg);-o-transform: rotate(147.4deg); -webkit-transform: rotate(147.4deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">19:30</p>
+				<p class="kwartosc">316.95<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(136.95deg);-ms-transform: rotate(136.95deg);-o-transform: rotate(136.95deg); -webkit-transform: rotate(136.95deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">20:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">330.01<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(150.01deg);-ms-transform: rotate(150.01deg);-o-transform: rotate(150.01deg); -webkit-transform: rotate(150.01deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">20:29</p>
+				<p class="kwartosc">326.85<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(146.85deg);-ms-transform: rotate(146.85deg);-o-transform: rotate(146.85deg); -webkit-transform: rotate(146.85deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">20:59</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">199.24<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(19.24deg);-ms-transform: rotate(19.24deg);-o-transform: rotate(19.24deg); -webkit-transform: rotate(19.24deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">21:30</p>
+				<p class="kwartosc">138.49<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-401.51deg);-ms-transform: rotate(-401.51deg);-o-transform: rotate(-401.51deg); -webkit-transform: rotate(-401.51deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">22:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">297.86<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(117.86deg);-ms-transform: rotate(117.86deg);-o-transform: rotate(117.86deg); -webkit-transform: rotate(117.86deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">22:30</p>
+				<p class="kwartosc">325.82<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(145.82deg);-ms-transform: rotate(145.82deg);-o-transform: rotate(145.82deg); -webkit-transform: rotate(145.82deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">23:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">312.80<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(132.8deg);-ms-transform: rotate(132.8deg);-o-transform: rotate(132.8deg); -webkit-transform: rotate(132.8deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">23:30</p>
+				<p class="kwartosc">274.58<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(94.58deg);-ms-transform: rotate(94.58deg);-o-transform: rotate(94.58deg); -webkit-transform: rotate(94.58deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">23-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">00:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">300.31<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(120.31deg);-ms-transform: rotate(120.31deg);-o-transform: rotate(120.31deg); -webkit-transform: rotate(120.31deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">23-VII 2019</p>
+				<p class="kczas">00:30</p>
+				<p class="kwartosc">315.18<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(135.18deg);-ms-transform: rotate(135.18deg);-o-transform: rotate(135.18deg); -webkit-transform: rotate(135.18deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">01:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">281.72<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(101.72deg);-ms-transform: rotate(101.72deg);-o-transform: rotate(101.72deg); -webkit-transform: rotate(101.72deg); width:20px"; ></p>	
+			</div><div class="komorkatyt">
+				<p class="kdatatyt">Data :</p>
+				<p class="kczastyt">Godzina :</p>
+				<p class="kwartosctyt">Kierunek wiatru :</p>
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">01:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">273.78<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(93.78deg);-ms-transform: rotate(93.78deg);-o-transform: rotate(93.78deg); -webkit-transform: rotate(93.78deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">01:59</p>
+				<p class="kwartosc">321.99<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(141.99deg);-ms-transform: rotate(141.99deg);-o-transform: rotate(141.99deg); -webkit-transform: rotate(141.99deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">02:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">296.94<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(116.94deg);-ms-transform: rotate(116.94deg);-o-transform: rotate(116.94deg); -webkit-transform: rotate(116.94deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">03:00</p>
+				<p class="kwartosc">266.26<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(86.26deg);-ms-transform: rotate(86.26deg);-o-transform: rotate(86.26deg); -webkit-transform: rotate(86.26deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">03:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">293.68<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(113.68deg);-ms-transform: rotate(113.68deg);-o-transform: rotate(113.68deg); -webkit-transform: rotate(113.68deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">03:59</p>
+				<p class="kwartosc">234.99<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(54.99deg);-ms-transform: rotate(54.99deg);-o-transform: rotate(54.99deg); -webkit-transform: rotate(54.99deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">04:29</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">238.52<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(58.52deg);-ms-transform: rotate(58.52deg);-o-transform: rotate(58.52deg); -webkit-transform: rotate(58.52deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">04:59</p>
+				<p class="kwartosc">322.92<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(142.92deg);-ms-transform: rotate(142.92deg);-o-transform: rotate(142.92deg); -webkit-transform: rotate(142.92deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">05:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">335.47<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(155.47deg);-ms-transform: rotate(155.47deg);-o-transform: rotate(155.47deg); -webkit-transform: rotate(155.47deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">06:00</p>
+				<p class="kwartosc">258.49<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(78.49deg);-ms-transform: rotate(78.49deg);-o-transform: rotate(78.49deg); -webkit-transform: rotate(78.49deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">06:29</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">192.25<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(12.25deg);-ms-transform: rotate(12.25deg);-o-transform: rotate(12.25deg); -webkit-transform: rotate(12.25deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">07:00</p>
+				<p class="kwartosc">277.37<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(97.37deg);-ms-transform: rotate(97.37deg);-o-transform: rotate(97.37deg); -webkit-transform: rotate(97.37deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">07:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">312.83<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(132.83deg);-ms-transform: rotate(132.83deg);-o-transform: rotate(132.83deg); -webkit-transform: rotate(132.83deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">08:00</p>
+				<p class="kwartosc">341.28<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(161.28deg);-ms-transform: rotate(161.28deg);-o-transform: rotate(161.28deg); -webkit-transform: rotate(161.28deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">08:29</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">335.61<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(155.61deg);-ms-transform: rotate(155.61deg);-o-transform: rotate(155.61deg); -webkit-transform: rotate(155.61deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">09:00</p>
+				<p class="kwartosc">324.67<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(144.67deg);-ms-transform: rotate(144.67deg);-o-transform: rotate(144.67deg); -webkit-transform: rotate(144.67deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">09:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">317.35<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(137.35deg);-ms-transform: rotate(137.35deg);-o-transform: rotate(137.35deg); -webkit-transform: rotate(137.35deg); width:20px"; ></p>	
+			</div><div class="komorkatyt">
+				<p class="kdatatyt">Data :</p>
+				<p class="kczastyt">Godzina :</p>
+				<p class="kwartosctyt">Kierunek wiatru :</p>
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">10:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">68.97<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-471.03deg);-ms-transform: rotate(-471.03deg);-o-transform: rotate(-471.03deg); -webkit-transform: rotate(-471.03deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">10:30</p>
+				<p class="kwartosc">20.51<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-519.49deg);-ms-transform: rotate(-519.49deg);-o-transform: rotate(-519.49deg); -webkit-transform: rotate(-519.49deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">11:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">13.90<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-526.1deg);-ms-transform: rotate(-526.1deg);-o-transform: rotate(-526.1deg); -webkit-transform: rotate(-526.1deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">11:29</p>
+				<p class="kwartosc">136.80<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-403.2deg);-ms-transform: rotate(-403.2deg);-o-transform: rotate(-403.2deg); -webkit-transform: rotate(-403.2deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">12:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">18.61<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-521.39deg);-ms-transform: rotate(-521.39deg);-o-transform: rotate(-521.39deg); -webkit-transform: rotate(-521.39deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">12:30</p>
+				<p class="kwartosc">15.36<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-524.64deg);-ms-transform: rotate(-524.64deg);-o-transform: rotate(-524.64deg); -webkit-transform: rotate(-524.64deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">13:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">16.25<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-523.75deg);-ms-transform: rotate(-523.75deg);-o-transform: rotate(-523.75deg); -webkit-transform: rotate(-523.75deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">13:30</p>
+				<p class="kwartosc">14.27<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-525.73deg);-ms-transform: rotate(-525.73deg);-o-transform: rotate(-525.73deg); -webkit-transform: rotate(-525.73deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">14:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">14.73<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-525.27deg);-ms-transform: rotate(-525.27deg);-o-transform: rotate(-525.27deg); -webkit-transform: rotate(-525.27deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">14:30</p>
+				<p class="kwartosc">13.76<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-526.24deg);-ms-transform: rotate(-526.24deg);-o-transform: rotate(-526.24deg); -webkit-transform: rotate(-526.24deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">15:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">37.58<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-502.42deg);-ms-transform: rotate(-502.42deg);-o-transform: rotate(-502.42deg); -webkit-transform: rotate(-502.42deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">15:30</p>
+				<p class="kwartosc">6.80<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-533.2deg);-ms-transform: rotate(-533.2deg);-o-transform: rotate(-533.2deg); -webkit-transform: rotate(-533.2deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">16:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">13.66<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-526.34deg);-ms-transform: rotate(-526.34deg);-o-transform: rotate(-526.34deg); -webkit-transform: rotate(-526.34deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">16:30</p>
+				<p class="kwartosc">21.57<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-518.43deg);-ms-transform: rotate(-518.43deg);-o-transform: rotate(-518.43deg); -webkit-transform: rotate(-518.43deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">17:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">40.37<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-499.63deg);-ms-transform: rotate(-499.63deg);-o-transform: rotate(-499.63deg); -webkit-transform: rotate(-499.63deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">17:30</p>
+				<p class="kwartosc">33.29<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-506.71deg);-ms-transform: rotate(-506.71deg);-o-transform: rotate(-506.71deg); -webkit-transform: rotate(-506.71deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">18:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">19.91<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-520.09deg);-ms-transform: rotate(-520.09deg);-o-transform: rotate(-520.09deg); -webkit-transform: rotate(-520.09deg); width:20px"; ></p>	
+			</div><div class="komorkatyt">
+				<p class="kdatatyt">Data :</p>
+				<p class="kczastyt">Godzina :</p>
+				<p class="kwartosctyt">Kierunek wiatru :</p>
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">18:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">27.62<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-512.38deg);-ms-transform: rotate(-512.38deg);-o-transform: rotate(-512.38deg); -webkit-transform: rotate(-512.38deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">19:00</p>
+				<p class="kwartosc">52.27<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-487.73deg);-ms-transform: rotate(-487.73deg);-o-transform: rotate(-487.73deg); -webkit-transform: rotate(-487.73deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">19:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">48.95<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-491.05deg);-ms-transform: rotate(-491.05deg);-o-transform: rotate(-491.05deg); -webkit-transform: rotate(-491.05deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">19:59</p>
+				<p class="kwartosc">48.41<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-491.59deg);-ms-transform: rotate(-491.59deg);-o-transform: rotate(-491.59deg); -webkit-transform: rotate(-491.59deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">20:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">44.13<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-495.87deg);-ms-transform: rotate(-495.87deg);-o-transform: rotate(-495.87deg); -webkit-transform: rotate(-495.87deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">21:00</p>
+				<p class="kwartosc">56.85<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-483.15deg);-ms-transform: rotate(-483.15deg);-o-transform: rotate(-483.15deg); -webkit-transform: rotate(-483.15deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">21:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">36.62<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-503.38deg);-ms-transform: rotate(-503.38deg);-o-transform: rotate(-503.38deg); -webkit-transform: rotate(-503.38deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">22:00</p>
+				<p class="kwartosc">56.01<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-483.99deg);-ms-transform: rotate(-483.99deg);-o-transform: rotate(-483.99deg); -webkit-transform: rotate(-483.99deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">22:29</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">42.77<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-497.23deg);-ms-transform: rotate(-497.23deg);-o-transform: rotate(-497.23deg); -webkit-transform: rotate(-497.23deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">23:00</p>
+				<p class="kwartosc">22.54<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-517.46deg);-ms-transform: rotate(-517.46deg);-o-transform: rotate(-517.46deg); -webkit-transform: rotate(-517.46deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">23:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">44.38<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-495.62deg);-ms-transform: rotate(-495.62deg);-o-transform: rotate(-495.62deg); -webkit-transform: rotate(-495.62deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">24-VII 2019</p>
+				<p class="kczas">00:00</p>
+				<p class="kwartosc">61.80<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-478.2deg);-ms-transform: rotate(-478.2deg);-o-transform: rotate(-478.2deg); -webkit-transform: rotate(-478.2deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">24-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">00:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">54.58<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-485.42deg);-ms-transform: rotate(-485.42deg);-o-transform: rotate(-485.42deg); -webkit-transform: rotate(-485.42deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">01:00</p>
+				<p class="kwartosc">60.85<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-479.15deg);-ms-transform: rotate(-479.15deg);-o-transform: rotate(-479.15deg); -webkit-transform: rotate(-479.15deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">01:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">59.38<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-480.62deg);-ms-transform: rotate(-480.62deg);-o-transform: rotate(-480.62deg); -webkit-transform: rotate(-480.62deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">02:00</p>
+				<p class="kwartosc">77.09<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-462.91deg);-ms-transform: rotate(-462.91deg);-o-transform: rotate(-462.91deg); -webkit-transform: rotate(-462.91deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">02:29</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">305.78<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(125.78deg);-ms-transform: rotate(125.78deg);-o-transform: rotate(125.78deg); -webkit-transform: rotate(125.78deg); width:20px"; ></p>	
+			</div><div class="komorkatyt">
+				<p class="kdatatyt">Data :</p>
+				<p class="kczastyt">Godzina :</p>
+				<p class="kwartosctyt">Kierunek wiatru :</p>
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">03:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">291.50<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(111.5deg);-ms-transform: rotate(111.5deg);-o-transform: rotate(111.5deg); -webkit-transform: rotate(111.5deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">03:30</p>
+				<p class="kwartosc">291.62<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(111.62deg);-ms-transform: rotate(111.62deg);-o-transform: rotate(111.62deg); -webkit-transform: rotate(111.62deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">04:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">291.42<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(111.42deg);-ms-transform: rotate(111.42deg);-o-transform: rotate(111.42deg); -webkit-transform: rotate(111.42deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">04:29</p>
+				<p class="kwartosc">291.45<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(111.45deg);-ms-transform: rotate(111.45deg);-o-transform: rotate(111.45deg); -webkit-transform: rotate(111.45deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">05:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">296.26<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(116.26deg);-ms-transform: rotate(116.26deg);-o-transform: rotate(116.26deg); -webkit-transform: rotate(116.26deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">05:30</p>
+				<p class="kwartosc">306.97<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(126.97deg);-ms-transform: rotate(126.97deg);-o-transform: rotate(126.97deg); -webkit-transform: rotate(126.97deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">06:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">306.77<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(126.77deg);-ms-transform: rotate(126.77deg);-o-transform: rotate(126.77deg); -webkit-transform: rotate(126.77deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">06:30</p>
+				<p class="kwartosc">326.66<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(146.66deg);-ms-transform: rotate(146.66deg);-o-transform: rotate(146.66deg); -webkit-transform: rotate(146.66deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">07:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">334.12<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(154.12deg);-ms-transform: rotate(154.12deg);-o-transform: rotate(154.12deg); -webkit-transform: rotate(154.12deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">07:29</p>
+				<p class="kwartosc">287.94<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(107.94deg);-ms-transform: rotate(107.94deg);-o-transform: rotate(107.94deg); -webkit-transform: rotate(107.94deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">08:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">241.10<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(61.1deg);-ms-transform: rotate(61.1deg);-o-transform: rotate(61.1deg); -webkit-transform: rotate(61.1deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">08:30</p>
+				<p class="kwartosc">60.10<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-479.9deg);-ms-transform: rotate(-479.9deg);-o-transform: rotate(-479.9deg); -webkit-transform: rotate(-479.9deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">09:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">12.05<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-527.95deg);-ms-transform: rotate(-527.95deg);-o-transform: rotate(-527.95deg); -webkit-transform: rotate(-527.95deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">09:30</p>
+				<p class="kwartosc">24.13<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-515.87deg);-ms-transform: rotate(-515.87deg);-o-transform: rotate(-515.87deg); -webkit-transform: rotate(-515.87deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">10:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">25.53<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-514.47deg);-ms-transform: rotate(-514.47deg);-o-transform: rotate(-514.47deg); -webkit-transform: rotate(-514.47deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">10:30</p>
+				<p class="kwartosc">27.96<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-512.04deg);-ms-transform: rotate(-512.04deg);-o-transform: rotate(-512.04deg); -webkit-transform: rotate(-512.04deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">11:00</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">27.03<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-512.97deg);-ms-transform: rotate(-512.97deg);-o-transform: rotate(-512.97deg); -webkit-transform: rotate(-512.97deg); width:20px"; ></p>	
+			</div><div class="komorkatyt">
+				<p class="kdatatyt">Data :</p>
+				<p class="kczastyt">Godzina :</p>
+				<p class="kwartosctyt">Kierunek wiatru :</p>
+			</div><div class="komorka">
+				<p class="kdata" style="background-color:#D4D4D4;">25-VII 2019</p>
+				<p class="kczas" style="background-color:#D4D4D4;">11:30</p>
+				<p class="kwartosc" style="background-color:#D4D4D4;">29.86<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-510.14deg);-ms-transform: rotate(-510.14deg);-o-transform: rotate(-510.14deg); -webkit-transform: rotate(-510.14deg); width:20px"; ></p>	
+			</div><div class="komorka">
+				<p class="kdata">25-VII 2019</p>
+				<p class="kczas">11:59</p>
+				<p class="kwartosc">22.78<br><img alt="" class="strz" src="strzalka.png" style="-moz-transform: rotate(-517.22deg);-ms-transform: rotate(-517.22deg);-o-transform: rotate(-517.22deg); -webkit-transform: rotate(-517.22deg); width:20px"; ></p>	
+			</div></div>
+
+<p style="clear:both;"></p>
+</div>
+
+<div id="parwody" class="akapittyt" style="display: none;">
+PARAMETRY WODY MORSKIEJ:
+
+
+<div class="link"><a href="#banner">Do góry</a></div>
+</div>
+
+<div ID="informacje" class="akapit" style="display: none;">
+<p style="font-size:25px">
+
+SONDA ZDJĘTA NA CZAS ZIMY
+</p>
+</div>
+
+
+
+
+
+
+</div>
+<div class="up">
+<div id="stopka" class="akapittyt">
+<img src="image001.jpg" class="logo3">
+
+<div class="stoptext">
+Projekt współfinansowany ze środków Europejskiego Funduszu Rozwoju Regionalnego<br>
+w ramach Programu Współpracy Transgranicznej Południowy Bałtyk 2007-2013.:
+
+<br><br>
+Wszelkie prawa zastrzeżone - IOPAN - PCZM
+<br>robert(at)iopan.gda.pl<br><br>
+</div>
+
+<img src="image003.jpg" class="logo4">
+</div>
+  <table width="100%"><tr><td style="text-align:right; font-size:14px; color:#1A3A85;">strona odwiedzona 
+ <img src="http://www.iopan.gda.pl/cgi-bin/Count.cgi?prgb=1A3A85&amp;dd=D&amp;trgb=000000&amp;ft=0&amp;df=marpolab_st.dat" alt="Counter">
+ razy od 17 października 2011</td></tr></table>
+</div>
+ </div>
+
+ 
+
+<script id="source">
+$(function () {
+
+function zmianaczasu(timst) 
+{ 
+var date = new Date(timst/1);
+var hours = date.getHours();
+var minutes = date.getMinutes();
+hours=hours-2 -1
+if (hours<0)
+  {
+  hours=24+hours;
+  }
+  if (minutes==0) {minutes='0'+'0';}
+var nowyczas = hours + ':' + minutes;
+return nowyczas;
+}
+
+var prwt = [[1563840000200,1.27],[1563841797300,1.40],[1563843598300,1.27],[1563845398900,1.80],[1563847198600,1.72],[1563848998700,0.93],[1563850811400,1.35],[1563852603600,1.55],[1563854401900,1.08],[1563856167100,1.09],[1563858001300,0.92],[1563859798300,1.00],[1563861605800,1.72],[1563863397000,1.34],[1563865203600,1.19],[1563867005300,1.28],[1563868804000,2.23],[1563870600100,1.79],[1563872405300,1.47],[1563874199100,1.44],[1563876028900,1.99],[1563877801200,1.57],[1563879605800,2.01],[1563881396500,2.76],[1563883210100,1.84],[1563885001500,1.89],[1563886801500,1.52],[1563888601500,1.60],[1563890401500,1.28],[1563892201500,1.08],[1563894009200,1.56],[1563895803400,1.63],[1563897599600,1.84],[1563899403100,1.87],[1563901197700,1.72],[1563903001400,1.96],[1563904813600,1.00],[1563906602500,1.11],[1563908399600,1.37],[1563910203700,2.04],[1563912002000,1.43],[1563913797500,0.82],[1563915590200,0.34],[1563917419400,0.62],[1563919204400,1.03],[1563921003700,2.35],[1563922802000,2.14],[1563924604300,0.80],[1563926410600,0.74],[1563928202700,0.84],[1563930002900,0.68],[1563931801500,0.57],[1563933599500,1.10],[1563935402800,0.82],[1563937211800,0.65],[1563939002200,0.63],[1563940799900,0.47],[1563942558200,0.69],[1563944398800,0.90],[1563946200000,0.94],[1563948004300,1.12],[1563949799500,1.23],[1563951601500,0.95],[1563953403600,0.65],[1563955205300,1.44],[1563956972400,2.57],[1563958805100,1.94],[1563960601500,1.12],[1563962405900,1.78],[1563964201500,4.36],[1563966001500,3.71],[1563967797300,3.46],[1563969603600,4.66],[1563971401500,3.72],[1563973201500,3.91],[1563975001500,4.29],[1563976801500,4.65],[1563978601500,4.16],[1563980405000,3.46],[1563982201500,3.90],[1563984001500,3.21],[1563985801500,2.14],[1563987601500,1.74],[1563989401500,2.53],[1563991203000,2.28],[1563993001500,2.35],[1563994801500,2.61],[1563996601500,2.37],[1563998375800,2.49],[1564000201500,2.61],[1564002002300,2.49],[1564003801500,3.04],[1564005601500,3.55],[1564007399600,2.71],[1564009201500,2.45],[1564011001500,2.21],[1564012803500,2.16],[1564014601500,2.09],[1564016401500,2.32],[1564018200600,1.52],[1564020001500,1.44],[1564021799700,1.33],[1564023606700,1.17],[1564025400800,1.59],[1564027203300,1.78],[1564028959600,1.83],[1564030801200,1.67],[1564032601100,1.97],[1564034402800,1.76],[1564036200900,1.90],[1564038000500,2.88],[1564039792800,2.78],[1564041601700,3.55],[1564043401300,3.44],[1564045200500,3.41],[1564047001500,3.71],[1564048801500,3.65],[1564050601500,3.36],[1564052401500,2.88],[1564054201500,3.11],[1564055998000,2.99],[1564055998000,], ];
+
+var prwtmin = [[1563840000200,0.10],[1563841797300,0.10],[1563843598300,0.10],[1563845398900,0.10],[1563847198600,0.10],[1563848998700,0.00],[1563850811400,0.10],[1563852603600,0.10],[1563854401900,0.00],[1563856167100,0.10],[1563858001300,0.10],[1563859798300,0.00],[1563861605800,0.20],[1563863397000,0.10],[1563865203600,0.10],[1563867005300,0.10],[1563868804000,0.10],[1563870600100,0.20],[1563872405300,0.00],[1563874199100,0.10],[1563876028900,0.10],[1563877801200,0.20],[1563879605800,0.40],[1563881396500,0.40],[1563883210100,0.00],[1563885001500,0.30],[1563886801500,0.40],[1563888601500,0.40],[1563890401500,0.00],[1563892201500,0.00],[1563894009200,0.40],[1563895803400,0.10],[1563897599600,0.80],[1563899403100,1.00],[1563901197700,0.60],[1563903001400,0.70],[1563904813600,0.00],[1563906602500,0.00],[1563908399600,0.20],[1563910203700,0.50],[1563912002000,0.40],[1563913797500,0.10],[1563915590200,0.00],[1563917419400,0.00],[1563919204400,0.10],[1563921003700,1.30],[1563922802000,0.50],[1563924604300,0.00],[1563926410600,0.00],[1563928202700,0.00],[1563930002900,0.10],[1563931801500,0.00],[1563933599500,0.00],[1563935402800,0.00],[1563937211800,0.00],[1563939002200,0.10],[1563940799900,0.00],[1563942558200,0.00],[1563944398800,0.20],[1563946200000,0.30],[1563948004300,0.00],[1563949799500,0.10],[1563951601500,0.20],[1563953403600,0.10],[1563955205300,0.60],[1563956972400,1.80],[1563958805100,0.90],[1563960601500,0.20],[1563962405900,0.60],[1563964201500,1.20],[1563966001500,0.50],[1563967797300,0.60],[1563969603600,3.30],[1563971401500,0.10],[1563973201500,0.50],[1563975001500,3.20],[1563976801500,3.00],[1563978601500,0.70],[1563980405000,0.40],[1563982201500,0.40],[1563984001500,2.00],[1563985801500,0.70],[1563987601500,0.40],[1563989401500,0.80],[1563991203000,1.00],[1563993001500,0.30],[1563994801500,1.00],[1563996601500,0.80],[1563998375800,1.10],[1564000201500,0.90],[1564002002300,0.90],[1564003801500,1.60],[1564005601500,1.90],[1564007399600,1.00],[1564009201500,1.40],[1564011001500,1.10],[1564012803500,0.90],[1564014601500,0.90],[1564016401500,1.00],[1564018200600,0.60],[1564020001500,0.60],[1564021799700,0.20],[1564023606700,0.10],[1564025400800,0.70],[1564027203300,1.10],[1564028959600,0.80],[1564030801200,1.00],[1564032601100,0.80],[1564034402800,1.00],[1564036200900,1.30],[1564038000500,1.40],[1564039792800,1.60],[1564041601700,2.50],[1564043401300,2.50],[1564045200500,2.60],[1564047001500,2.40],[1564048801500,2.50],[1564050601500,1.50],[1564052401500,0.80],[1564054201500,1.10],[1564055998000,1.90],[1564055998000,], ];
+
+var prwtmax = [[1563840000200,3.70],[1563841797300,4.30],[1563843598300,3.50],[1563845398900,4.40],[1563847198600,4.80],[1563848998700,2.70],[1563850811400,2.70],[1563852603600,3.30],[1563854401900,3.30],[1563856167100,2.50],[1563858001300,2.20],[1563859798300,2.50],[1563861605800,3.00],[1563863397000,3.20],[1563865203600,3.20],[1563867005300,3.50],[1563868804000,4.90],[1563870600100,4.30],[1563872405300,3.70],[1563874199100,3.40],[1563876028900,4.10],[1563877801200,3.80],[1563879605800,3.90],[1563881396500,4.80],[1563883210100,4.20],[1563885001500,3.20],[1563886801500,2.80],[1563888601500,2.60],[1563890401500,2.60],[1563892201500,2.20],[1563894009200,2.80],[1563895803400,2.80],[1563897599600,2.80],[1563899403100,2.60],[1563901197700,3.00],[1563903001400,3.00],[1563904813600,2.20],[1563906602500,3.10],[1563908399600,2.60],[1563910203700,3.30],[1563912002000,2.50],[1563913797500,1.50],[1563915590200,1.10],[1563917419400,1.40],[1563919204400,2.40],[1563921003700,3.50],[1563922802000,3.50],[1563924604300,2.30],[1563926410600,2.10],[1563928202700,2.10],[1563930002900,1.60],[1563931801500,1.80],[1563933599500,2.40],[1563935402800,2.10],[1563937211800,1.60],[1563939002200,1.60],[1563940799900,1.00],[1563942558200,1.40],[1563944398800,1.80],[1563946200000,2.10],[1563948004300,2.50],[1563949799500,2.30],[1563951601500,1.90],[1563953403600,1.50],[1563955205300,3.20],[1563956972400,3.40],[1563958805100,3.20],[1563960601500,2.30],[1563962405900,2.80],[1563964201500,5.90],[1563966001500,6.00],[1563967797300,4.90],[1563969603600,5.90],[1563971401500,5.30],[1563973201500,5.00],[1563975001500,5.10],[1563976801500,5.70],[1563978601500,5.70],[1563980405000,5.50],[1563982201500,5.20],[1563984001500,4.20],[1563985801500,3.70],[1563987601500,3.10],[1563989401500,3.60],[1563991203000,3.70],[1563993001500,3.40],[1563994801500,3.60],[1563996601500,3.70],[1563998375800,3.40],[1564000201500,3.80],[1564002002300,3.30],[1564003801500,4.50],[1564005601500,4.80],[1564007399600,4.50],[1564009201500,3.70],[1564011001500,3.40],[1564012803500,3.30],[1564014601500,3.20],[1564016401500,3.30],[1564018200600,2.30],[1564020001500,2.20],[1564021799700,2.20],[1564023606700,2.00],[1564025400800,2.50],[1564027203300,2.70],[1564028959600,2.90],[1564030801200,2.40],[1564032601100,2.80],[1564034402800,2.50],[1564036200900,2.90],[1564038000500,3.90],[1564039792800,4.10],[1564041601700,4.50],[1564043401300,4.40],[1564045200500,4.50],[1564047001500,5.00],[1564048801500,4.80],[1564050601500,4.60],[1564052401500,4.20],[1564054201500,4.20],[1564055998000,3.90],[1564055998000,], ];
+
+ var temp =  [[1563840000200,17.10],[1563841797300,16.88],[1563843598300,16.61],[1563845398900,16.48],[1563847198600,16.51],[1563848998700,16.45],[1563850811400,16.42],[1563852603600,16.46],[1563854401900,16.31],[1563856167100,16.20],[1563858001300,16.19],[1563859798300,16.10],[1563861605800,16.20],[1563863397000,16.36],[1563865203600,16.52],[1563867005300,16.74],[1563868804000,16.96],[1563870600100,17.24],[1563872405300,17.46],[1563874199100,17.76],[1563876028900,18.13],[1563877801200,18.55],[1563879605800,18.86],[1563881396500,19.14],[1563883210100,19.89],[1563885001500,20.30],[1563886801500,19.21],[1563888601500,17.99],[1563890401500,18.59],[1563892201500,18.85],[1563894009200,18.30],[1563895803400,17.82],[1563897599600,17.89],[1563899403100,18.21],[1563901197700,18.25],[1563903001400,18.30],[1563904813600,18.64],[1563906602500,18.81],[1563908399600,18.82],[1563910203700,18.56],[1563912002000,18.56],[1563913797500,18.71],[1563915590200,18.89],[1563917419400,19.00],[1563919204400,18.99],[1563921003700,18.94],[1563922802000,18.74],[1563924604300,18.61],[1563926410600,18.58],[1563928202700,18.51],[1563930002900,18.50],[1563931801500,18.50],[1563933599500,18.55],[1563935402800,18.59],[1563937211800,18.53],[1563939002200,18.54],[1563940799900,18.61],[1563942558200,18.59],[1563944398800,18.48],[1563946200000,18.31],[1563948004300,18.34],[1563949799500,18.42],[1563951601500,18.66],[1563953403600,18.97],[1563955205300,19.22],[1563956972400,19.30],[1563958805100,19.32],[1563960601500,19.51],[1563962405900,19.86],[1563964201500,19.76],[1563966001500,19.86],[1563967797300,19.87],[1563969603600,19.54],[1563971401500,19.76],[1563973201500,20.20],[1563975001500,19.90],[1563976801500,20.05],[1563978601500,20.15],[1563980405000,20.17],[1563982201500,20.00],[1563984001500,20.04],[1563985801500,20.43],[1563987601500,21.77],[1563989401500,20.74],[1563991203000,20.21],[1563993001500,20.82],[1563994801500,21.26],[1563996601500,21.12],[1563998375800,20.28],[1564000201500,19.92],[1564002002300,20.02],[1564003801500,19.61],[1564005601500,19.57],[1564007399600,19.30],[1564009201500,19.03],[1564011001500,18.97],[1564012803500,18.90],[1564014601500,18.77],[1564016401500,18.67],[1564018200600,18.54],[1564020001500,18.42],[1564021799700,17.78],[1564023606700,17.41],[1564025400800,17.09],[1564027203300,16.95],[1564028959600,16.76],[1564030801200,16.76],[1564032601100,16.82],[1564034402800,16.94],[1564036200900,17.54],[1564038000500,18.12],[1564039792800,18.52],[1564041601700,18.67],[1564043401300,18.85],[1564045200500,19.04],[1564047001500,19.42],[1564048801500,19.53],[1564050601500,19.94],[1564052401500,20.30],[1564054201500,20.51],[1564055998000,20.03],[1564055998000,], ];
+   
+ var tempod =  [[1563840000200,17.10],[1563841797300,16.88],[1563843598300,16.60],[1563845398900,16.47],[1563847198600,16.49],[1563848998700,16.45],[1563850811400,16.42],[1563852603600,16.45],[1563854401900,16.31],[1563856167100,16.20],[1563858001300,16.19],[1563859798300,16.10],[1563861605800,16.18],[1563863397000,16.34],[1563865203600,16.51],[1563867005300,16.74],[1563868804000,16.89],[1563870600100,17.22],[1563872405300,17.45],[1563874199100,17.76],[1563876028900,18.13],[1563877801200,18.54],[1563879605800,18.87],[1563881396500,19.14],[1563883210100,19.90],[1563885001500,20.29],[1563886801500,19.20],[1563888601500,17.99],[1563890401500,18.59],[1563892201500,18.85],[1563894009200,18.30],[1563895803400,17.82],[1563897599600,17.90],[1563899403100,18.21],[1563901197700,18.24],[1563903001400,18.30],[1563904813600,18.64],[1563906602500,18.80],[1563908399600,18.81],[1563910203700,18.56],[1563912002000,18.57],[1563913797500,18.70],[1563915590200,18.89],[1563917419400,19.01],[1563919204400,18.99],[1563921003700,18.94],[1563922802000,18.74],[1563924604300,18.61],[1563926410600,18.58],[1563928202700,18.52],[1563930002900,18.50],[1563931801500,18.51],[1563933599500,18.55],[1563935402800,18.58],[1563937211800,18.53],[1563939002200,18.54],[1563940799900,18.61],[1563942558200,18.58],[1563944398800,18.48],[1563946200000,18.31],[1563948004300,18.34],[1563949799500,18.42],[1563951601500,18.67],[1563953403600,18.97],[1563955205300,19.22],[1563956972400,19.30],[1563958805100,19.33],[1563960601500,19.52],[1563962405900,19.86],[1563964201500,19.73],[1563966001500,19.85],[1563967797300,19.87],[1563969603600,19.51],[1563971401500,19.76],[1563973201500,20.19],[1563975001500,19.90],[1563976801500,20.05],[1563978601500,20.15],[1563980405000,20.17],[1563982201500,20.00],[1563984001500,20.04],[1563985801500,20.43],[1563987601500,21.77],[1563989401500,20.73],[1563991203000,20.21],[1563993001500,20.82],[1563994801500,21.27],[1563996601500,21.12],[1563998375800,20.28],[1564000201500,19.92],[1564002002300,20.02],[1564003801500,19.62],[1564005601500,19.57],[1564007399600,19.30],[1564009201500,19.02],[1564011001500,18.96],[1564012803500,18.90],[1564014601500,18.76],[1564016401500,18.68],[1564018200600,18.54],[1564020001500,18.42],[1564021799700,17.77],[1564023606700,17.40],[1564025400800,17.09],[1564027203300,16.96],[1564028959600,16.76],[1564030801200,16.76],[1564032601100,16.82],[1564034402800,16.94],[1564036200900,17.53],[1564038000500,18.13],[1564039792800,18.52],[1564041601700,18.67],[1564043401300,18.86],[1564045200500,19.05],[1564047001500,19.42],[1564048801500,19.53],[1564050601500,19.94],[1564052401500,20.30],[1564054201500,20.47],[1564055998000,20.03],[1564055998000,], ];
+   
+   var opad= [[1563839995800,0.00],[1563843597800,0.00],[1563847195800,0.00],[1563850796600,0.00],[1563854407300,0.00],[1563858060300,0.00],[1563861602000,0.00],[1563865201800,0.00],[1563868803200,0.00],[1563872399600,0.00],[1563875992900,0.00],[1563879602000,0.00],[1563883207100,0.00],[1563886801500,0.00],[1563890401500,0.00],[1563893996200,0.00],[1563897603000,0.00],[1563901198900,0.00],[1563904806000,0.00],[1563908402600,0.00],[1563912001400,0.00],[1563915571500,0.00],[1563919220200,0.00],[1563922807400,0.00],[1563926404400,0.00],[1563930004300,0.00],[1563933597500,0.00],[1563937201200,0.00],[1563940801000,0.00],[1563944468700,0.00],[1563947999100,0.00],[1563951603500,0.00],[1563955204400,0.00],[1563958809300,0.00],[1563962400700,0.00],[1563966001500,0.00],[1563969600500,0.00],[1563973201500,0.00],[1563976801500,0.00],[1563980397200,0.00],[1563984001500,0.00],[1563987601500,0.00],[1563991191600,0.00],[1563994801500,0.00],[1563998364300,0.00],[1564001997400,0.00],[1564005601500,0.00],[1564009202000,0.00],[1564012796400,0.00],[1564016401500,0.00],[1564020002500,0.00],[1564023597100,0.00],[1564027203500,0.00],[1564030860800,0.00],[1564034399700,0.00],[1564038002200,0.00],[1564041619700,0.00],[1564045199400,0.00],[1564048801500,0.00],[1564052401500,0.00],[1564055992900,0.00], ];
+      
+	  var cis= [[1563840000200,1019.71],[1563841797300,1019.71],[1563843598300,1019.47],[1563845398900,1019.47],[1563847198600,1019.55],[1563848998700,1019.45],[1563850811400,1019.30],[1563852603600,1019.29],[1563854401900,1019.15],[1563856167100,1019.12],[1563858001300,1019.18],[1563859798300,1019.14],[1563861605800,1019.10],[1563863397000,1019.00],[1563865203600,1018.97],[1563867005300,1018.93],[1563868804000,1018.96],[1563870600100,1018.92],[1563872405300,1019.08],[1563874199100,1019.12],[1563876028900,1019.10],[1563877801200,1019.03],[1563879605800,1019.10],[1563881396500,1019.26],[1563883210100,1019.35],[1563885001500,1019.36],[1563886801500,1019.45],[1563888601500,1019.59],[1563890401500,1019.50],[1563892201500,1019.42],[1563894009200,1019.28],[1563895803400,1019.15],[1563897599600,1019.03],[1563899403100,1018.97],[1563901197700,1018.85],[1563903001400,1018.72],[1563904813600,1018.60],[1563906602500,1018.68],[1563908399600,1018.63],[1563910203700,1018.60],[1563912002000,1018.56],[1563913797500,1018.66],[1563915590200,1018.70],[1563917419400,1018.66],[1563919204400,1018.60],[1563921003700,1018.59],[1563922802000,1018.48],[1563924604300,1018.31],[1563926410600,1018.32],[1563928202700,1018.30],[1563930002900,1018.23],[1563931801500,1018.15],[1563933599500,1018.14],[1563935402800,1018.08],[1563937211800,1017.94],[1563939002200,1017.87],[1563940799900,1017.77],[1563942558200,1017.61],[1563944398800,1017.64],[1563946200000,1017.71],[1563948004300,1017.75],[1563949799500,1017.70],[1563951601500,1017.75],[1563953403600,1017.75],[1563955205300,1017.96],[1563956972400,1018.00],[1563958805100,1018.00],[1563960601500,1017.91],[1563962405900,1018.03],[1563964201500,1018.25],[1563966001500,1018.43],[1563967797300,1018.61],[1563969603600,1018.70],[1563971401500,1018.80],[1563973201500,1018.90],[1563975001500,1019.05],[1563976801500,1019.21],[1563978601500,1019.29],[1563980405000,1019.38],[1563982201500,1019.20],[1563984001500,1019.09],[1563985801500,1019.12],[1563987601500,1019.05],[1563989401500,1019.01],[1563991203000,1019.11],[1563993001500,1019.08],[1563994801500,1018.96],[1563996601500,1018.96],[1563998375800,1019.06],[1564000201500,1019.19],[1564002002300,1019.39],[1564003801500,1019.58],[1564005601500,1019.72],[1564007399600,1019.96],[1564009201500,1019.97],[1564011001500,1019.99],[1564012803500,1020.11],[1564014601500,1020.20],[1564016401500,1020.18],[1564018200600,1020.16],[1564020001500,1020.21],[1564021799700,1020.12],[1564023606700,1020.12],[1564025400800,1020.13],[1564027203300,1020.26],[1564028959600,1020.23],[1564030801200,1020.12],[1564032601100,1020.05],[1564034402800,1020.12],[1564036200900,1020.21],[1564038000500,1020.46],[1564039792800,1020.45],[1564041601700,1020.57],[1564043401300,1020.59],[1564045200500,1020.60],[1564047001500,1020.67],[1564048801500,1020.61],[1564050601500,1020.59],[1564052401500,1020.54],[1564054201500,1020.46],[1564055998000,1020.48],[1564055998000,], ];
+      
+	  var nas=[[1563840000200,0],[1563841797300,0],[1563843598300,0],[1563845398900,0],[1563847198600,0],[1563848998700,0],[1563850811400,0],[1563852603600,0],[1563854401900,0],[1563856167100,0],[1563858001300,0.27],[1563859798300,7.50],[1563861605800,25.76],[1563863397000,55.24],[1563865203600,60.54],[1563867005300,86.15],[1563868804000,135.58],[1563870600100,155.74],[1563872405300,175.15],[1563874199100,241.24],[1563876028900,285.66],[1563877801200,260.36],[1563879605800,274.40],[1563881396500,254.44],[1563883210100,341.73],[1563885001500,135.11],[1563886801500,110.34],[1563888601500,119.79],[1563890401500,106.66],[1563892201500,148.14],[1563894009200,102.53],[1563895803400,132.58],[1563897599600,123.14],[1563899403100,191.25],[1563901197700,111.84],[1563903001400,71.94],[1563904813600,90.00],[1563906602500,29.10],[1563908399600,22.27],[1563910203700,31.27],[1563912002000,28.77],[1563913797500,18.70],[1563915590200,4.83],[1563917419400,0],[1563919204400,0],[1563921003700,0],[1563922802000,0],[1563924604300,0],[1563926410600,0],[1563928202700,0],[1563930002900,0],[1563931801500,0],[1563933599500,0],[1563935402800,0],[1563937211800,0],[1563939002200,0],[1563940799900,0],[1563942558200,0],[1563944398800,0],[1563946200000,2.12],[1563948004300,12.46],[1563949799500,58.79],[1563951601500,117.20],[1563953403600,82.32],[1563955205300,80.67],[1563956972400,67.76],[1563958805100,116.56],[1563960601500,192.93],[1563962405900,193.43],[1563964201500,153.48],[1563966001500,169.31],[1563967797300,111.28],[1563969603600,301.84],[1563971401500,561.70],[1563973201500,836.03],[1563975001500,537.29],[1563976801500,502.60],[1563978601500,395.81],[1563980405000,416.96],[1563982201500,447.44],[1563984001500,386.18],[1563985801500,563.64],[1563987601500,359.27],[1563989401500,176.87],[1563991203000,239.08],[1563993001500,226.29],[1563994801500,146.81],[1563996601500,106.09],[1563998375800,44.33],[1564000201500,20.62],[1564002002300,8.67],[1564003801500,0.28],[1564005601500,0],[1564007399600,0],[1564009201500,0],[1564011001500,0],[1564012803500,0],[1564014601500,0],[1564016401500,0],[1564018200600,0],[1564020001500,0],[1564021799700,0],[1564023606700,0],[1564025400800,0],[1564027203300,0],[1564028959600,0],[1564030801200,1.11],[1564032601100,11.65],[1564034402800,26.04],[1564036200900,40.72],[1564038000500,129.48],[1564039792800,228.80],[1564041601700,351.21],[1564043401300,378.37],[1564045200500,436.83],[1564047001500,574.12],[1564048801500,638.20],[1564050601500,703.72],[1564052401500,762.60],[1564054201500,753.63],[1564055998000,423.26],[1564055998000,], ];
+
+
+
+		 
+   var wil= [[1563840000200,73.24],[1563841797300,74.60],[1563843598300,76.42],[1563845398900,77.42],[1563847198600,77.69],[1563848998700,78.66],[1563850811400,78.24],[1563852603600,78.45],[1563854401900,78.91],[1563856167100,79.94],[1563858001300,80.59],[1563859798300,81.24],[1563861605800,82.17],[1563863397000,81.61],[1563865203600,81.44],[1563867005300,81.07],[1563868804000,81.16],[1563870600100,80.05],[1563872405300,78.92],[1563874199100,77.53],[1563876028900,75.28],[1563877801200,73.94],[1563879605800,72.48],[1563881396500,72.41],[1563883210100,72.30],[1563885001500,70.20],[1563886801500,75.81],[1563888601500,85.86],[1563890401500,84.03],[1563892201500,84.93],[1563894009200,87.95],[1563895803400,89.85],[1563897599600,89.46],[1563899403100,89.20],[1563901197700,92.02],[1563903001400,93.46],[1563904813600,94.43],[1563906602500,93.49],[1563908399600,92.77],[1563910203700,94.48],[1563912002000,94.64],[1563913797500,94.00],[1563915590200,93.86],[1563917419400,93.37],[1563919204400,92.10],[1563921003700,91.03],[1563922802000,91.11],[1563924604300,91.07],[1563926410600,90.91],[1563928202700,90.61],[1563930002900,91.03],[1563931801500,91.68],[1563933599500,92.00],[1563935402800,91.39],[1563937211800,91.73],[1563939002200,91.74],[1563940799900,91.89],[1563942558200,92.00],[1563944398800,92.57],[1563946200000,94.64],[1563948004300,95.10],[1563949799500,95.35],[1563951601500,93.59],[1563953403600,92.31],[1563955205300,91.23],[1563956972400,90.23],[1563958805100,90.15],[1563960601500,89.05],[1563962405900,88.51],[1563964201500,89.63],[1563966001500,89.63],[1563967797300,89.57],[1563969603600,92.13],[1563971401500,89.90],[1563973201500,87.09],[1563975001500,88.55],[1563976801500,87.35],[1563978601500,87.52],[1563980405000,86.32],[1563982201500,86.62],[1563984001500,86.02],[1563985801500,83.89],[1563987601500,78.60],[1563989401500,82.44],[1563991203000,85.23],[1563993001500,82.11],[1563994801500,80.76],[1563996601500,80.66],[1563998375800,84.16],[1564000201500,85.64],[1564002002300,84.65],[1564003801500,85.17],[1564005601500,82.63],[1564007399600,82.32],[1564009201500,83.20],[1564011001500,83.07],[1564012803500,83.84],[1564014601500,84.19],[1564016401500,84.43],[1564018200600,84.05],[1564020001500,85.69],[1564021799700,90.14],[1564023606700,91.27],[1564025400800,92.65],[1564027203300,93.04],[1564028959600,93.79],[1564030801200,93.85],[1564032601100,93.98],[1564034402800,93.90],[1564036200900,92.24],[1564038000500,90.24],[1564039792800,88.82],[1564041601700,88.08],[1564043401300,86.15],[1564045200500,84.25],[1564047001500,81.42],[1564048801500,81.01],[1564050601500,79.59],[1564052401500,77.66],[1564054201500,75.98],[1564055998000,77.42],[1564055998000,], ];
+		 
+
+
+
+	var opcje = {
+     grid: { hoverable: true, clickable: true },
+	 selection: { mode: "x" },
+	 xaxis: { mode: "time", color:"rgb(00, 0, 00)", timeformat: "%0d - %0b %H:%M", 
+	 monthNames: ["STY", "LUT", "MAR", "KWI", "MAJ", "CZE", "LIP", "SIE", "WRZ", "PAŹ", "LIS", "GRU"]},
+	 yaxis: {color:"rgb(00, 0, 00)"},
+	 series: { color: "rgb(20, 20, 200)", lines: { show: true }, points: { show: false }, shadowSize: 5 }
+	};
+	
+     var opcjeopad = {
+     grid: { hoverable: true, clickable: true },
+	 selection: { mode: "x" },
+	 xaxis: { mode: "time", color:"rgb(00, 0, 00)", timeformat: "%0d - %0b %H:%M", 
+	 monthNames: ["STY", "LUT", "MAR", "KWI", "MAJ", "CZE", "LIP", "SIE", "WRZ", "PAŹ", "LIS", "GRU"]},
+	 yaxis: {color:"rgb(00, 0, 00)"},
+	 series: { 
+		color: "rgb(20, 20, 200)", 
+		lines: { show: false, fill: false }, 
+		points: { show: true }, 
+		bars: { show: true, barWidth: 0000000,align: "center", horizontal: false}}};
+	
+	var opcjepod ={
+        series: { color: "rgb(20, 20, 200)", lines: { show: true, lineWidth: 1 }, shadowSize: 3 },
+        xaxis: {  mode: "time" , timeformat: "%0d - %0b %H:%M", 
+	 monthNames: ["STY", "LUT", "MAR", "KWI", "MAJ", "CZE", "LIP", "SIE", "WRZ", "PAŹ", "LIS", "GRU"]},
+        yaxis: { ticks: [], autoscaleMargin: 0.1 },
+        selection: { mode: "x" }
+    };
+	
+		var opcjepodopad ={
+        series: { color: "rgb(20, 20, 200)", lines: { show: false, lineWidth: 1 }, shadowSize: 3, 	bars: { show: true, barWidth: 0000000,align: "center", horizontal: false} },
+        xaxis: {  mode: "time" , timeformat: "%0d - %0b %H:%M", 
+	 monthNames: ["STY", "LUT", "MAR", "KWI", "MAJ", "CZE", "LIP", "SIE", "WRZ", "PAŹ", "LIS", "GRU"]},
+        yaxis: { ticks: [], autoscaleMargin: 0.1 },
+        selection: { mode: "x" }
+    };
+	
+
+
+function plotWithOptionstemp(t1) { plottemp=$.plot($("#wyktemperatury"), [ { data: temp, label: "Temperatura" },
+             { data: tempod, label: "Temperatura odczuwalna", yaxis: 1, color: "rgb(30, 180, 20)"}], $.extend(true, {}, { series: {threshold: { below: t1, color: "rgb(20, 20, 30)" }}}, opcje ));}
+	plotWithOptionstemp(-100);
+
+function plotWithOptionspr(t3) { plotpr=$.plot($("#wykresprwt"), [{ data: prwtmax, label: "Prędkość wiatru - maksymalna", yaxis: 1, color: "rgb(200, 20, 20)"}, { data: prwt, label: "Prędkość wiatru - średnia" },
+             { data: prwtmin, label: "Prędkość wiatru - minimalna", yaxis: 1, color: "rgb(20, 200, 20)"}], $.extend(true, {}, { series: {threshold: { below: t3, color: "rgb(20, 20, 30)" }}}, opcje ));}
+	plotWithOptionspr(-100);	
+	
+function plotWithOptionsopad(t4) { plotopad=$.plot($("#wykresopad"), [opad], $.extend(true, {}, opcjeopad ));}
+	plotWithOptionsopad(-100);	
+	
+function plotWithOptionscis(t5) { plotcis=$.plot($("#wykrescis"), [cis], $.extend(true, {}, { series: {threshold: { below: t5, color: "rgb(20, 20, 30)" }}}, opcje ));}
+	plotWithOptionscis(-100);	
+	function plotWithOptionsnas(t6) { plotnas=$.plot($("#wykresnas"), [nas], $.extend(true, {}, { series: {threshold: {  }}}, opcje ));}
+	plotWithOptionsnas(-100);	
+
+function plotWithOptionswil(t14) { plotwil=$.plot($("#wykreswil"), [wil], $.extend(true, {}, { series: {threshold: { below: t14, color: "rgb(20, 20, 30)" }}}, opcje ));}
+	plotWithOptionswil(-100);	
+	
+
+
+function showTooltip(x, y, contents) { $('<div id="tooltip">' + contents + '</div>').css( { position: 'absolute', display: 'none', top: y - 40, left: x - 55, border: '1px solid #fdd', padding: '2px', 'background-color': '#fee', opacity: 0.80 }).appendTo("body").fadeIn(200);} var previousPoint = null;
+
+$("#wyktemperatury").bind("plothover", function (event, pos, item) {$("#x").text(pos.x.toFixed(2)); $("#y").text(pos.y.toFixed(2));
+if ($("#enableTooltiptemppo:checked").length > 0) {if (item) {if (previousPoint != item.dataIndex) {previousPoint = item.dataIndex;$("#tooltip").remove();
+var x = item.datapoint[0].toFixed(2),  y = item.datapoint[1].toFixed(2); showTooltip(item.pageX, item.pageY, " &nbsp;  &nbsp;  &nbsp;" + zmianaczasu(x)  + ' &ndash; ' + y); } }else { $("#tooltip").remove(); previousPoint = null;         }} });
+	
+
+
+$("#wykresopad").bind("plothover", function (event, pos, item) {$("#x").text(pos.x.toFixed(2)); $("#y").text(pos.y.toFixed(2));
+if ($("#enableTooltipopad:checked").length > 0) {if (item) {if (previousPoint != item.dataIndex) {previousPoint = item.dataIndex;$("#tooltip").remove();
+var x = item.datapoint[0].toFixed(2),  y = item.datapoint[1].toFixed(2); showTooltip(item.pageX, item.pageY,  " &nbsp;  &nbsp;  &nbsp;" + zmianaczasu(x)  +  " - " + y); } }else { $("#tooltip").remove(); previousPoint = null;         }} });
+
+
+$("#wykresprwt").bind("plothover", function (event, pos, item) {$("#x").text(pos.x.toFixed(2)); $("#y").text(pos.y.toFixed(2));
+if ($("#enableTooltippw:checked").length > 0) {if (item) {if (previousPoint != item.dataIndex) {previousPoint = item.dataIndex;$("#tooltip").remove();
+var x = item.datapoint[0].toFixed(2),  y = item.datapoint[1].toFixed(2); showTooltip(item.pageX, item.pageY, " &nbsp;  &nbsp;  &nbsp;" + zmianaczasu(x)  +   " - " + y); } }else { $("#tooltip").remove(); previousPoint = null;         }} });
+
+
+$("#wykrescis").bind("plothover", function (event, pos, item) {$("#x").text(pos.x.toFixed(2)); $("#y").text(pos.y.toFixed(2));
+if ($("#enableTooltipcis:checked").length > 0) {if (item) {if (previousPoint != item.dataIndex) {previousPoint = item.dataIndex;$("#tooltip").remove();
+var x = item.datapoint[0].toFixed(2),  y = item.datapoint[1].toFixed(2); showTooltip(item.pageX, item.pageY,  " &nbsp;  &nbsp;  &nbsp;" + zmianaczasu(x)  +  " - " + y); } }else { $("#tooltip").remove(); previousPoint = null;         }} });
+	
+
+$("#wykresnas").bind("plothover", function (event, pos, item) {$("#x").text(pos.x.toFixed(2)); $("#y").text(pos.y.toFixed(2));
+if ($("#enableTooltipnas:checked").length > 0) {if (item) {if (previousPoint != item.dataIndex) {previousPoint = item.dataIndex;$("#tooltip").remove();
+var x = item.datapoint[0].toFixed(2),  y = item.datapoint[1].toFixed(2); showTooltip(item.pageX , item.pageY,  " &nbsp;  &nbsp;  &nbsp;" + zmianaczasu(x)  +  ' &ndash; ' + y); } }else { $("#tooltip").remove(); previousPoint = null;         }} });
+
+
+$("#wykreswil").bind("plothover", function (event, pos, item) {$("#x").text(pos.x.toFixed(2)); $("#y").text(pos.y.toFixed(2));
+if ($("#enableTooltipwil:checked").length > 0) {if (item) {if (previousPoint != item.dataIndex) {previousPoint = item.dataIndex;$("#tooltip").remove();
+var x = item.datapoint[0].toFixed(2),  y = item.datapoint[1].toFixed(2); showTooltip(item.pageX, item.pageY, " &nbsp;  &nbsp;  &nbsp;" + zmianaczasu(x)  +   " - " + y); } }else { $("#tooltip").remove(); previousPoint = null;         }} });
+
+
+
+
+$("#wykrestemowody").bind("plothover", function (event, pos, item) {$("#x").text(pos.x.toFixed(2)); $("#y").text(pos.y.toFixed(2));
+if ($("#enableTooltiptempwod:checked").length > 0) {if (item) {if (previousPoint != item.dataIndex) {previousPoint = item.dataIndex;$("#tooltip").remove();
+var x = item.datapoint[0].toFixed(2),  y = item.datapoint[1].toFixed(2); showTooltip(item.pageX, item.pageY, " &nbsp;  &nbsp;  &nbsp;" + zmianaczasu(x)  +   " = " + y); } }else { $("#tooltip").remove(); previousPoint = null;         }} });
+	
+
+$("#wykreszas").bind("plothover", function (event, pos, item) {$("#x").text(pos.x.toFixed(2)); $("#y").text(pos.y.toFixed(2));
+if ($("#enableTooltipzas:checked").length > 0) {if (item) {if (previousPoint != item.dataIndex) {previousPoint = item.dataIndex;$("#tooltip").remove();
+var x = item.datapoint[0].toFixed(2),  y = item.datapoint[1].toFixed(2); showTooltip(item.pageX, item.pageY,  " &nbsp;  &nbsp;  &nbsp;" + zmianaczasu(x)  +  " = " + y); } }else { $("#tooltip").remove(); previousPoint = null;         }} });
+
+
+
+
+
+var overview2 = $.plot($("#wyktemperaturypodglad"), [ { data: temp,  },
+             { data: tempod,  yaxis: 1, color: "rgb(30, 180, 20)"}], opcjepod );
+$("#wyktemperatury").bind("plotselected", function (event, ranges) {
+plottemp = $.plot($("#wyktemperatury"), [ { data: temp, label: "Temperatura" },
+             { data: tempod, label: "Temperatura odczuwalna", yaxis: 1, color: "rgb(30, 180, 20)"}],$.extend(true, {}, opcje, { xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to } }));
+overview2.setSelection(ranges, true);});
+$("#wyktemperaturypodglad").bind("plotselected", function (event, ranges) {  plottemp.setSelection(ranges); });
+	
+var overview3 = $.plot($("#wykrespwpodglad"), [ { data: prwt, },
+             { data: prwtmin,  yaxis: 1, color: "rgb(20, 200, 20)"}, { data: prwtmax,  yaxis: 1, color: "rgb(200, 20, 20)"}], opcjepod );
+$("#wykresprwt").bind("plotselected", function (event, ranges) {
+plotpr = $.plot($("#wykresprwt"), [{ data: prwtmax, label: "Prędkość wiatru - maksymalna", yaxis: 1, color: "rgb(200, 20, 20)"}, { data: prwt, label: "Prędkość wiatru - średnia" },
+             { data: prwtmin, label: "Prędkość wiatru - minimalna", yaxis: 1, color: "rgb(20, 200, 20)"}],$.extend(true, {}, opcje, { xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to } }));
+overview3.setSelection(ranges, true);});
+$("#wykrespwpodglad").bind("plotselected", function (event, ranges) {  plotpr.setSelection(ranges); });	
+
+var overview4 = $.plot($("#wykresopadpodglad"), [opad], opcjepodopad );
+$("#wykresopad").bind("plotselected", function (event, ranges) {
+plotopad = $.plot($("#wykresopad"), [opad],$.extend(true, {}, opcjeopad, { xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to } }));
+overview4.setSelection(ranges, true);});
+$("#wykresopadpodglad").bind("plotselected", function (event, ranges) {  plotopad.setSelection(ranges); });
+	
+var overview5 = $.plot($("#wykrescispodglad"), [cis], opcjepod );
+$("#wykrescis").bind("plotselected", function (event, ranges) {
+plotcis = $.plot($("#wykrescis"), [cis],$.extend(true, {}, opcje, { xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to } }));
+overview5.setSelection(ranges, true);});
+$("#wykrescispodglad").bind("plotselected", function (event, ranges) {  plotcis.setSelection(ranges); });	
+
+var overview6 = $.plot($("#wykresnaspodglad"), [nas], opcjepod );
+$("#wykresnas").bind("plotselected", function (event, ranges) {
+plotnas = $.plot($("#wykresnas"), [nas],$.extend(true, {}, opcje, { xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to } }));
+overview6.setSelection(ranges, true);});
+$("#wykresnaspodglad").bind("plotselected", function (event, ranges) {  plotnas.setSelection(ranges); });
+	
+
+	
+var overview15 = $.plot($("#wykreswilpodglad"), [wil], opcjepod );
+$("#wykreswil").bind("plotselected", function (event, ranges) {
+plotzas = $.plot($("#wykreswil"), [wil],$.extend(true, {}, opcje, { xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to } }));
+overview15.setSelection(ranges, true);});
+$("#wykreswilpodglad").bind("plotselected", function (event, ranges) {  plotwil.setSelection(ranges); });
+		
+		
+		
+
+		
+
+ $("#controlstemppo input").click(function (e) {  e.preventDefault(); var t1 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionstemp(t1); });  
+ $("#controlspw input").click(function (e) {  e.preventDefault(); var t3 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionspr(t3); });  
+ $("#controlsopad input").click(function (e) {  e.preventDefault(); var t4 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionsopad(t4); });  
+ $("#controlscis input").click(function (e) {  e.preventDefault(); var t5 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionscis(t5); });  
+
+ $("#controlszas input").click(function (e) {  e.preventDefault(); var t7 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionszas(t7); });  
+ $("#controlstempwod input").click(function (e) {  e.preventDefault(); var t13 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionstempwod(t13); });  
+ 
+ $("#controlswil input").click(function (e) {  e.preventDefault(); var t13 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionswil(t14); });  
+  $("#controlszas input").click(function (e) {  e.preventDefault(); var t7 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionszas(t7); });  
+ $("#controlstempwod input").click(function (e) {  e.preventDefault(); var t13 = parseFloat($(this).val().replace('Próg na ', '')); plotWithOptionstempwod(t13); });  
+
+$("#resettemp").click(function () { $.plot($("#wyktemperaturypodglad"), [ { data: temp },
+             { data: tempod, yaxis: 1, color: "rgb(30, 180, 20)"}], opcjepod ); $.plot($("#wyktemperatury"), [ { data: temp, label: "Temperatura" },
+             { data: tempod, label: "Temperatura odczuwalna", yaxis: 1, color: "rgb(30, 180, 20)"}], opcje); });
+$("#resetpw").click(function () { $.plot($("#wykrespwpodglad"), [ { data: prwt },
+             { data: prwtmin, yaxis: 1, color: "rgb(20, 200, 20)"}, { data: prwtmax, 
+			  yaxis: 1, color: "rgb(200, 20, 20)"}], opcjepod ); $.plot($("#wykresprwt"), [{ data: prwtmax, label: "Prędkość wiatru - maksymalna", yaxis: 1, color: "rgb(200, 20, 20)"}, { data: prwt, label: "Prędkość wiatru - średnia" },
+             { data: prwtmin, label: "Prędkość wiatru - minimalna", yaxis: 1, color: "rgb(20, 200, 20)"}], opcje); });
+$("#resetopad").click(function () { $.plot($("#wykresopadpodglad"), [opad], opcjepodopad ); $.plot($("#wykresopad"), [opad], opcjeopad); });
+$("#resetcis").click(function () { $.plot($("#wykrescispodglad"), [cis], opcjepod ); $.plot($("#wykrescis"), [cis], opcje); });
+$("#resetnas").click(function () { $.plot($("#wykresnaspodglad"), [nas], opcjepod ); $.plot($("#wykresnas"), [nas], opcje); });
+
+$("#resetwil").click(function () { $.plot($("#wykreswilpodglad"), [wil], opcjepod ); $.plot($("#wykreswil"), [wil], opcje); });
+
+$("#resettempwod").click(function () { $.plot($("#wykrestempwodpodglad"), [tempwod], opcjepod ); $.plot($("#wykrestemowody"), [tempwod], opcje); });
+$("#resetzas").click(function () { $.plot($("#wykreszaspodglad"), [zas], opcjepod ); $.plot($("#wykreszas"), [zas], opcje); });
+
+
+});	
+	
+	
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#chowajwiatry").hide();
+    });
+</script>
+</body>
+</html>
