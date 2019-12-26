@@ -1,4 +1,6 @@
 import requests
+import logging
+logger = logging.getLogger()
 
 WINDY_UPDATE_URL = 'https://stations.windy.com/pws/update/'
 
@@ -9,7 +11,7 @@ def update_station(api_key: str, params: dict) -> int:
         r.raise_for_status()
         return r.status_code
     except Exception as e:
-        ...
+        logger.error(f"Error during update_station: {str(e)}")
 
 
 def update_stations(api_key: str, observations_list: list) -> int:
@@ -18,4 +20,4 @@ def update_stations(api_key: str, observations_list: list) -> int:
         r.raise_for_status()
         return r.status_code
     except Exception as e:
-        ...
+        logger.error(f"Error during update_stations: {str(e)}")
