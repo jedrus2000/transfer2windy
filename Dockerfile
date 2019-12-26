@@ -12,5 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./transfer2windy ./transfer2windy
 
-# Start Flask app
 ENTRYPOINT ["python", "-m", "transfer2windy"]
