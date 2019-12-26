@@ -18,6 +18,9 @@ def get_iopan_station_meteo_data(station_id_ignored: str) -> dict:
 
 
 def parse_iopan_station_meteo_data(stations_xml_data: str, station_id_ignored: str) -> dict:
+    if not stations_xml_data:
+        return dict()
+
     #   'property_name': 'winddir',
     properties: Dict = {
         0: 'wind',  # prwt
@@ -66,8 +69,8 @@ def parse_iopan_station_meteo_data(stations_xml_data: str, station_id_ignored: s
         result['dateutc'] = loc_dt.astimezone(pytz.utc).strftime("%Y-%m-%d %H:%M:%S")
 
     except Exception as e:
-        # logger.error(e)
-        raise e
+        logger.error(e)
+        # raise e
 
     return result
 
@@ -75,7 +78,7 @@ def parse_iopan_station_meteo_data(stations_xml_data: str, station_id_ignored: s
 def download_iopan_station_meteo_data() -> str:
     result = ''
     try:
-        r = requests.get(IOPAN_BASE_URL)
+        r = requests.get(IOPAN_BASE_URL, timeout=180)
         r.raise_for_status()
         result = r.text
     except Exception as e:
