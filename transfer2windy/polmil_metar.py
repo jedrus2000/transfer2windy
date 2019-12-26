@@ -24,7 +24,8 @@ def parse_milmetar_data(station_html_data: str) -> dict:
         tempresult = dict()
         tempresult['dateutc'] = str(obs.time)
         if len(obs._unparsed_remarks) > 1:
-            tempresult['temp'] = int(obs._unparsed_remarks[0])/10
+            temp = obs._unparsed_remarks[0].split('M')
+            tempresult['temp'] = -1*int(temp[1])/10 if len(temp)>1 else int(temp[0])/10
             tempresult['humidity'] = int(obs._unparsed_remarks[1])
         else:
             tempresult['temp'] = obs.temp.value()
