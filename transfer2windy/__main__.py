@@ -2,12 +2,15 @@ import argparse
 import os
 import sys
 import transfer2windy
+import boto3
 
 import logging
 logger = logging.getLogger()
 
 
 def lambda_handler(events, context):
+    set_environment_from_param_store()
+
     result = list()
     data_for_windy_list = list()
     for event in events:
@@ -34,6 +37,18 @@ def lambda_handler(events, context):
 
     logger.info(f'Windy response: {resp}')
     return result
+
+
+def set_environment_from_param_store():
+    ssm = boto3.client('ssm', 'eu-central-1')
+    params = ['WINDY_API_KEY']
+    for param in params:
+        if os.environ.get(param):
+            continue
+        response = ssm.get_parameters(
+            Names=[param], WithDecryption=True
+        )
+        os.environ[param] = response['Parameters'][0]['Value']
 
 
 def send2windy(data_for_windy) -> int:
