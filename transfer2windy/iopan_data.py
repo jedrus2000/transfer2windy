@@ -26,7 +26,7 @@ def parse_iopan_station_meteo_data(stations_xml_data: str, station_id_ignored: s
         0: 'wind',  # prwt
         2: 'gust',  # prwtmax
         3: 'temp',  # temp
-        5: 'percip',  # opad
+        5: 'precip',  # opad
         6: 'mbar',  # cis
         8: 'humidity'  # wil
     }

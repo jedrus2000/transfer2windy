@@ -43,7 +43,7 @@ def parse_armaag_station_meteo_data(stations_xml_data: str, station_id: str) -> 
             'substance_type': 'CISN'
         },
         {
-            'property_name': 'percip',
+            'property_name': 'precip',
             'substance_type': 'RAIN'
         },
     ]
