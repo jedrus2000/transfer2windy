@@ -30,8 +30,9 @@ def lambda_handler(events, context):
         logger.info(windy_msg)
         result.append(windy_msg)
 
-    send2windy(data_for_windy_list)
+    resp = send2windy(data_for_windy_list)
 
+    logger.info(f'Windy response: {resp}')
     return result
 
 
