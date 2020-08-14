@@ -50,11 +50,12 @@ def parse_iopan_station_meteo_data(stations_xml_data: str, station_id_ignored: s
 
 
         # ... rest of parameters
-        data_js = soup.find('script', {'id': 'source'}).text.strip()
+        data_js_f = soup.find('script', {'id': 'source'})
+        data_js = str(data_js_f.string).strip()
         search_res = re.findall(r"\=\s*(\[[^;]*)", data_js, re.MULTILINE)
 
         for prop_k, prop_v in properties.items():
-            data = [a for a in reversed(ast.literal_eval(search_res[prop_k])) if len(a)>1]
+            data = [a for a in reversed(ast.literal_eval(search_res[prop_k])) if len(a) > 1]
             if start_date_unix_epoch is not None and start_date_unix_epoch != data[0][0]:
                 logger.warning(f'Values lists at {prop_k} do not match by epoch. Current epoch: {start_date_unix_epoch}, found: {data[0][0]}')
                 # logger.debug(f'Value object: {data[0]}')
@@ -69,7 +70,8 @@ def parse_iopan_station_meteo_data(stations_xml_data: str, station_id_ignored: s
         result['dateutc'] = loc_dt.astimezone(pytz.utc).strftime("%Y-%m-%d %H:%M:%S")
 
     except Exception as e:
-        logger.error(e)
+        import traceback
+        logger.error(f"{e}\n{traceback.format_exc()}")
         # raise e
 
     return result
