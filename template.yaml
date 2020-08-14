@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  transfer2windy:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: transfer2windy.__main__.lambda_handler
+      Runtime: python3.7
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 180
+      Role: 'arn:aws:iam::691175348666:role/service-role/transfer2windy-role-9f39ku1a'
+      Events:
+        Schedule1:
+          Type: Schedule
+          Properties:
+            Name: 'stations2windy'
+            Description: 'Sending multiple sites data to Windy'
+            Schedule: rate(30 minutes)
+            Input: '[ { "source_type": "gddkia", "source_id": "145", "windy_station_id": "0" }, { "source_type": "polmil-metar", "source_id": "EPOK","windy_station_id": "1" }, { "source_type": "armaag", "source_id": "AM4", "windy_station_id": "2" }, { "source_type": "armaag", "source_id": "AM11", "windy_station_id": "3" }, { "source_type": "armaag", "source_id": "AM12", "windy_station_id": "4" }, { "source_type": "iopan", "source_id": "SOPOT", "windy_station_id": "5" } ]'
