@@ -11,7 +11,19 @@ Resources:
       Description: ''
       MemorySize: 128
       Timeout: 180
-      Role: 'arn:aws:iam::691175348666:role/service-role/transfer2windy-role-9f39ku1a'
+      Policies:
+        - Statement:
+            - Sid: SSMDescribeParametersPolicy
+              Effect: Allow
+              Action:
+                - ssm:DescribeParameters
+              Resource: '*'
+            - Sid: SSMGetParameterPolicy
+              Effect: Allow
+              Action:
+                - ssm:GetParameters
+                - ssm:GetParameter
+              Resource: '*'
       Events:
         Schedule1:
           Type: Schedule
