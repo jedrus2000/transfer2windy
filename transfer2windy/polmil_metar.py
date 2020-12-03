@@ -6,7 +6,7 @@ import logging
 logger = logging.getLogger()
 from metar import Metar
 
-IMGW_BASE_URL = "http://awiacja.imgw.pl/rss/metarmil.php"
+IMGW_BASE_URL = "http://awiacja.imgw.pl/metarmil.php"
 
 
 def get_milmetar_station_meteo_data(station_id: str) -> dict:
